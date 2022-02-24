@@ -21,7 +21,7 @@ After completing this lab, you will be able to:
 1.	In the Default Part window, select the Boards tab, and depending on the board you are using, (if you can't find the board you are looking for, refer to [README.md]() for setup) and click Next.
 
     <p align="center">
-    <img src ="pics/lab1/1BoardsandParts.JPG" width="60%" height="80%"/>
+    <img src ="pics/lab1/1BoardsandParts.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Boards and Parts Selection</i>
@@ -29,7 +29,7 @@ After completing this lab, you will be able to:
 
 1.	Check the Project Summary (should be similar to what you see below) and click Finish to create an empty Vivado project.
     <p align="center">
-    <img src ="pics/lab1/2ProjectSummary.JPG" width="60%" height="80%"/>
+    <img src ="pics/lab1/2ProjectSummary.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Project Summary</i>
@@ -40,7 +40,7 @@ After completing this lab, you will be able to:
 
 1.	In the Flow Navigator, click **Create Block Design** under IP Integrator
     <p align="center">
-    <img src ="pics/lab1/3CreateIP.JPG" width="20%" height="20%"/>
+    <img src ="pics/lab1/3CreateIP.jpg" width="20%" height="20%"/>
     </p>
     <p align = "center">
     <i>Create IP Integrator Block Diagram</i>
@@ -66,7 +66,7 @@ After completing this lab, you will be able to:
 1. Once Block Automation has been complete, notice that ports have been automatically added for the DDR and Fixed IO, and some additional ports are now visible. The imported configuration for the Zynq related to the board has been applied which will now be modified. The block should finally look like this:
 
     <p align="center">
-    <img src ="pics/lab1/5Zynqblck.JPG" width="90%" height="80%"/>
+    <img src ="pics/lab1/5Zynqblck.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
      <i> Zynq Block with DDR and Fixed IO ports</i>
@@ -141,7 +141,7 @@ After completing this lab, you will be able to:
 
     The system_wrapper.v file will be created and added to the project.  Double-click on the file to see the content in the Auxiliary pane.
     <p align="center">
-    <img src ="pics/lab1/9wrap.JPG" width="40%" height="80%"/>
+    <img src ="pics/lab1/9wrap.jpg" width="40%" height="80%"/>
     </p>
     <p align = "center">
     <i> The HDL Wrapper file generated and added to the project </i>
@@ -159,7 +159,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 1. Review the Welcome page and close it. Click **Create Application Project**, and click Next.
 3. In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the system_wrapper.xsa file exported before.
     <p align="center">
-    <img src ="pics/lab1/10AddPlatform.JPG" width="80%" height="80%"/>
+    <img src ="pics/lab1/10AddPlatform.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Select a platform to create the project </i>
@@ -167,7 +167,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 4. In the project details window, name the project **mem_test**, and in the Target processor selection, select **ps7_cortexa9_0**.
     <p align="center">
-    <img src ="pics/lab1/11NewAppProject.JPG" width="80%" height="80%"/>
+    <img src ="pics/lab1/11NewAppProject.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Name the project and select target processor </i>
@@ -175,7 +175,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 5. Select **Memory Tests** as the template in the Template Selection window. Click finish.
    <p align="center">
-    <img src ="pics/lab1/12SelTemplate.JPG" width="80%" height="80%"/>
+    <img src ="pics/lab1/12SelTemplate.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Select a template to create the project </i>
