@@ -21,7 +21,7 @@ After completing this lab, you will be able to:
 1.	In the Default Part window, select the Boards tab, and depending on the board you are using, (if you can't find the board you are looking for, refer to [README.md]() for setup) and click Next.
 
     <p align="center">
-    <img src ="pics/lab1/1BoardsandParts.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/1_BoardsandParts.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Boards and Parts Selection</i>
@@ -29,7 +29,7 @@ After completing this lab, you will be able to:
 
 1.	Check the Project Summary (should be similar to what you see below) and click Finish to create an empty Vivado project.
     <p align="center">
-    <img src ="pics/lab1/2ProjectSummary.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/2_ProjectSummary.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Project Summary</i>
@@ -40,7 +40,7 @@ After completing this lab, you will be able to:
 
 1.	In the Flow Navigator, click **Create Block Design** under IP Integrator
     <p align="center">
-    <img src ="pics/lab1/3CreateIP.jpg" width="20%" height="20%"/>
+    <img src ="pics/lab1/3_CreateIP.jpg" width="20%" height="20%"/>
     </p>
     <p align = "center">
     <i>Create IP Integrator Block Diagram</i>
@@ -50,7 +50,7 @@ After completing this lab, you will be able to:
 
 1.	Right-click anywhere in the Diagram workspace and select **Add IP**.
     <p align="center">
-    <img src ="pics/lab1/4AddIP.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/4_AddIP.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Add IP to Block Diagram</i>
@@ -66,7 +66,7 @@ After completing this lab, you will be able to:
 1. Once Block Automation has been complete, notice that ports have been automatically added for the DDR and Fixed IO, and some additional ports are now visible. The imported configuration for the Zynq related to the board has been applied which will now be modified. The block should finally look like this:
 
     <p align="center">
-    <img src ="pics/lab1/5Zynqblck.jpg" width="90%" height="80%"/>
+    <img src ="pics/lab1/5_Zynqblck.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
      <i> Zynq Block with DDR and Fixed IO ports</i>
@@ -102,7 +102,7 @@ After completing this lab, you will be able to:
     </i>
 
     <p align="center">
-    <img src ="pics/lab1/6UART.jpg" width="90%" height="80%"/>
+    <img src ="pics/lab1/6_UART.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
     <i> Selecting only UART 1</i>
@@ -119,7 +119,7 @@ After completing this lab, you will be able to:
 
 1. Click on the **Regenerate Layout button** (green arrow) shown below:
     <p align="center">
-    <img src ="pics/lab1/7RegValid.jpg" width="90%" height="80%"/>
+    <img src ="pics/lab1/7_RegValid.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
     <i> Regenerating and Validating Design</i>
@@ -131,7 +131,7 @@ After completing this lab, you will be able to:
 
 1.	In the sources panel, right-click on **system.bd**, and select **Generate Output Products…** and click Generate to generate the Implementation, Simulation and Synthesis files for the design (You can also click on **Generate Block Design** in the Flow Navigator pane to do the same)
     <p align="center">
-    <img src ="pics/lab1/8OP.jpg" width="40%" height="80%"/>
+    <img src ="pics/lab1/8_OP.jpg" width="40%" height="80%"/>
     </p>
     <p align = "center">
     <i> Generating output products </i>
@@ -141,7 +141,7 @@ After completing this lab, you will be able to:
 
     The system_wrapper.v file will be created and added to the project.  Double-click on the file to see the content in the Auxiliary pane.
     <p align="center">
-    <img src ="pics/lab1/9wrap.jpg" width="40%" height="80%"/>
+    <img src ="pics/lab1/9_wrap.jpg" width="40%" height="80%"/>
     </p>
     <p align = "center">
     <i> The HDL Wrapper file generated and added to the project </i>
@@ -159,7 +159,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 1. Review the Welcome page and close it. Click **Create Application Project**, and click Next.
 3. In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the system_wrapper.xsa file exported before.
     <p align="center">
-    <img src ="pics/lab1/10AddPlatform.jpg" width="80%" height="80%"/>
+    <img src ="pics/lab1/10_AddPlatform.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Select a platform to create the project </i>
@@ -167,7 +167,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 4. In the project details window, name the project **mem_test**, and in the Target processor selection, select **ps7_cortexa9_0**.
     <p align="center">
-    <img src ="pics/lab1/11NewAppProject.jpg" width="80%" height="80%"/>
+    <img src ="pics/lab1/11_NewAppProject.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Name the project and select target processor </i>
@@ -175,7 +175,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 5. Select **Memory Tests** as the template in the Template Selection window. Click finish.
    <p align="center">
-    <img src ="pics/lab1/12SelTemplate.jpg" width="80%" height="80%"/>
+    <img src ="pics/lab1/12_SelTemplate.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Select a template to create the project </i>
@@ -183,7 +183,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1.	Expand folders in the Explorer view on the left, and observe that there are two projects – system_wrapper, and mem_test_system.  The **mem_test_system** project is the application that we will use to verify the functionality of the design.  The **system_wrapper** is a platform project includes the ps7_init function which initializes the PS as part of the first stage bootloader. The Explorer view should look something like this:
     <p align="center">
-    <img src ="pics/lab1/13Explorer.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/13_Explorer.jpg" width="35%" height="80%"/>
     </p>
     <p align = "center">
     <i> The Project Explorer view </i>
@@ -193,7 +193,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1. Build the application project either by clicking the hammer button or by right-clicking on the application project and selecting Build Project as shown in following figure. As the project builds, you can see the output in the Console window.
     <p align="center">
-    <img src ="pics/lab1/14Build.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/14_Build.jpg" width="35%" height="80%"/>
     </p>
     <p align = "center">
     <i> Build the application project </i>
@@ -207,7 +207,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
    * In the Show View dialog box, type **terminal** in the search box.
    * Select **Vitis Serial Terminal** and click **Open**.
     <p align="center">
-    <img src ="pics/lab1/15OpenVitisTerminal.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/15_OpenVitisTerminal.jpg" width="35%" height="80%"/>
     </p>
     <p align = "center">
     <i> Open the Vitis Serial Terminal </i>
@@ -215,7 +215,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
  
 1. Click the Add button in the Vitis Serial Terminal to connect to a serial terminal. Select the port from the dropdown menu. Keep the Advanced Settings as-is. Click OK.
    <p align="center">
-    <img src ="pics/lab1/16ConnectSerial.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/16_ConnectSerial.jpg" width="35%" height="80%"/>
     </p>
     <p align = "center">
     <i> Connect to serial port </i>
@@ -223,7 +223,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1. Right-click the application project and select **Run As > Run Configurations**.
     <p align="center">
-    <img src ="pics/lab1/17OpenRunConfig.jpg" width="90%" height="80%"/>
+    <img src ="pics/lab1/17_OpenRunConfig.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
     <i> Launch Run Configurations </i>
@@ -233,7 +233,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1. Click the **Target Setup** page and review the settings. The default choice is the Tcl script.
     <p align="center">
-    <img src ="pics/lab1/18RunConfig.jpg" width="90%" height="80%"/>
+    <img src ="pics/lab1/18_RunConfig.jpg" width="90%" height="80%"/>
     </p>
     <p align = "center">
     <i> Debug a Program using AApplication Debugger </i>
@@ -241,7 +241,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1. Click **Run**. You should see the following output on the Terminal tab.
     <p align="center">
-    <img src ="pics/lab1/19MemTestRun.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/19_MemTestRun.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i> Connect to serial port </i>
