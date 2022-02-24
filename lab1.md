@@ -8,7 +8,6 @@ After completing this lab, you will be able to:
 *	Use Vitis IDE to create a standard memory test project
 *	Run the test application on the board and hence verify hardware functionality
 
-
 ## Steps
 ### Create a Vivado Project
 
@@ -40,7 +39,6 @@ After completing this lab, you will be able to:
 ### Creating the System Using the IP Integrator
 
 1.	In the Flow Navigator, click **Create Block Design** under IP Integrator
-
     <p align="center">
     <img src ="pics/lab1/3CreateIP.JPG" width="20%" height="20%"/>
     </p>
@@ -80,6 +78,7 @@ After completing this lab, you will be able to:
 ###	Configure the processing block with just UART 1 peripheral enabled.
 
 1.	A block diagram of the Zynq should now be open again, showing various configurable blocks of the **Processing System**.
+
 1. At this stage, the designer can click on various configurable blocks (highlighted in green) and change the system configuration.
 
 1.	Click on one of the peripherals (in green) in the **Peripheral I/O Pins** block of the Zynq Block Design, or select the **MIO Configuration** tab on the left to open the configuration form
@@ -111,9 +110,13 @@ After completing this lab, you will be able to:
 
 
 1.	Select the **PS-PL Configuration** tab on the left.
+
 1.	Expand **AXI Non Secure Enablement > GP Master AXI interface** and deselect M AXI GP0 interface.
+
 1.	Expand **General > Enable Clock Resets** and deselect the FCLK_RESET0_N option.
+
 1.	Select the **Clock Configuration** tab on the left. Expand the PL Fabric Clocks and deselect the FCLK_CLK0 option and click OK.
+
 1. Click on the **Regenerate Layout button** (green arrow) shown below:
     <p align="center">
     <img src ="pics/lab1/7RegValid.jpg" width="90%" height="80%"/>
@@ -122,13 +125,10 @@ After completing this lab, you will be able to:
     <i> Regenerating and Validating Design</i>
     </p>  
 
-
 1.	Click on the **Validate Design button** (purple arrow) and make sure that there are no errors.
 
 ### Generate Top-Level and Export hardware
 
-  <!--Generate IP Integrator Outputs, the top-level HDL, and start SDK by exporting the hardware.
-     -->  
 1.	In the sources panel, right-click on **system.bd**, and select **Generate Output Products…** and click Generate to generate the Implementation, Simulation and Synthesis files for the design (You can also click on **Generate Block Design** in the Flow Navigator pane to do the same)
     <p align="center">
     <img src ="pics/lab1/8OP.jpg" width="40%" height="80%"/>
@@ -136,7 +136,8 @@ After completing this lab, you will be able to:
     <p align = "center">
     <i> Generating output products </i>
     </p>  
-1.	Right-click again on system.bd, and select Create **HDL Wrapper…** to generate the top-level VHDL model. Leave the Let Vivado manager wrapper and auto-update option selected, and click OK
+
+1. Right-click again on system.bd, and select Create **HDL Wrapper…** to generate the top-level VHDL model. Leave the Let Vivado manager wrapper and auto-update option selected, and click OK
 
     The system_wrapper.v file will be created and added to the project.  Double-click on the file to see the content in the Auxiliary pane.
     <p align="center">
@@ -145,8 +146,9 @@ After completing this lab, you will be able to:
     <p align = "center">
     <i> The HDL Wrapper file generated and added to the project </i>
     </p>  
-1.	Notice that the Verilog file is already Set As the Top module in the design, indicated by the icon  
-1.	Select **File > Export > Export hardware** and click OK. (Save the project if prompted)
+
+1. Notice that the Verilog file is already Set As the Top module in the design, indicated by the icon.
+1. Select **File > Export > Export hardware** and click OK. (Save the project if prompted)
 Note:  Since we do not have any hardware in Programmable Logic (PL) there is no bitstream to generate, hence the Include bitstream option is not necessary at this time.
 
 1. Basic information about the hardware configuration of the project can be found in the Xilinx Support Archive (XSA) file, along with the Address maps for the PS systems, and driver information. The .xsa file is used in the software environment to determine the peripherals available in the system, and their location in the address map.
