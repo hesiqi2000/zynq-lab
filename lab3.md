@@ -14,12 +14,12 @@ After completing this lab, you will be able to:
 
 ### Create a Custom IP using the Create and Package IP Wizard
 
-1.	Open Vivado by selecting **Start > All Programs > Xilinx Design Tools > Vivado 2018.1 > Vivado 2018.1**
-2.	Click **Manage IP** and select New IP Location and click Next in the New IP Location window
+1.	Open Vivado by selecting **Start > All Programs > Xilinx Design Tools > Vivado 2021.2 > Vivado 2021.2**
+2.	Click **Manage IP** and select **New IP Location** and click Next in the New IP Location window
 3.	Select Verilog as the Target Language, Mixed as the Simulator language, and for IP location, type **{labs}\led_ip** and click Finish (leave other settings as defaults and click OK if prompted to create the directory)
 
      <p align="center">
-     <img src ="/pics/lab 3/1ipst.JPG" width="80%" height="80%"/>
+     <img src ="pics/lab3/1_ipst.jpg" width="80%" height="80%"/>
      </p>
      <p align = "center">
      <i>New IP Location form</i>
@@ -56,23 +56,23 @@ After completing this lab, you will be able to:
 2.	Add the line:
 
 ```verilog
-7   parameter integer LED_WIDTH         = 8,
+7   parameter integer LED_WIDTH = 8,
 ```
 
 3.	Go to line 18 and add the line:
 
 ```verilog
-18    output wire [LED_WIDTH-1:0]      LED,
+18  output wire [LED_WIDTH-1:0] LED,
 ```
 > don't forget to add commas when adding a port
 
 4.	Insert the following at line ~48:
-```systemverilog
-48    .LED_WIDTH(LED_WIDTH),
+```verilog
+48  .LED_WIDTH(LED_WIDTH),
 ```
 5.	Insert the following at line ~52:
-```systemverilog
-52   .LED(LED),
+```verilog
+52  .LED(LED),
 ```
 
 
@@ -83,23 +83,23 @@ After completing this lab, you will be able to:
 9.	Scroll down to ~line 400 and insert the following code to instantiate the user logic for the LED IP
 (This code can be typed directly, or copied from the user_logic_instantiation.txt file in the lab3 source folder.)
 
-   ```systemverilog
-1  lab3_user_logic  # (
-2      .LED_WIDTH(LED_WIDTH)
-3    )
-4   U1(
-5       .S_AXI_ACLK(S_AXI_ACLK),
-6       .slv_reg_wren(slv_reg_wren),
-7       .axi_awaddr(axi_awaddr[C_S_AXI_ADDR_WIDTH-1:ADDR_LSB]),
-8       .S_AXI_WDATA(S_AXI_WDATA),
-9       .S_AXI_ARESETN(S_AXI_ARESETN),
-10      .LED(LED)
-11    );
-   ```
+```verilog
+lab3_user_logic  # (
+    .LED_WIDTH(LED_WIDTH)
+)
+U1(
+    .S_AXI_ACLK(S_AXI_ACLK),
+    .slv_reg_wren(slv_reg_wren),
+    .axi_awaddr(axi_awaddr[C_S_AXI_ADDR_WIDTH-1:ADDR_LSB]),
+    .S_AXI_WDATA(S_AXI_WDATA),
+    .S_AXI_ARESETN(S_AXI_ARESETN),
+    .LED(LED)
+);
+ ```
   Check all the signals that are being connected and where they originate.
 
 10.	Save the file by selecting **File > Save File**
-11.	Click on the Add Sources in the Flow Navigator pane, select Add or Create Design Sources, click Next, then click the Green Plus then Add Files…, browse to **{sources}\lab3**, select the lab3_user_logic.v file and click OK, and then click Finish to add the file.
+11.	Click on the Add Sources in the Flow Navigator pane, select Add or Create Design Sources, click Next, then click the Plus icon then Add Files…, browse to **{sources}\lab3**, select the lab3_user_logic.v file and click OK, and then click Finish to add the file.
 
     Check the contents of this file to understand the logic that is being implemented.  Notice the formed hierarchy.
 
@@ -115,7 +115,7 @@ After completing this lab, you will be able to:
 1.	Click on the Package IP – led_ip tab
 
    <p align="center">
-   <img src ="/pics/lab 3/2PackIP.JPG" width="80%" height="80%"/>
+   <img src ="pics/lab3/2_PackIP.jpg" width="80%" height="80%"/>
    </p>
    <p align = "center">
    <i> Package IP</i>
@@ -125,58 +125,53 @@ After completing this lab, you will be able to:
 
 2.	For the IP to appear in the IP catalog in particular categories, the IP must be configured to be part of those categories. To change which categories the IP will appear in the IP catalog click Blue Plus (Red box shown in the figure) in the Categories section. This opens the Choose IP Categories window
 3.	For the purpose of this exercise, uncheck the _AXI Peripheral_ box and check the Basic Elements and click OK.
-4.	Select Compatibility. This shows the different Xilinx FPGA Families that the IP supports. The value is inherited from the device selected for the project.
+4.	Select **Compatibility**. This shows the different Xilinx FPGA Families that the IP supports. The value is inherited from the device selected for the project.
 5.	Click the Blue Plus then **Add Family Explicitly…** from the menu.
 6.	Select the Zynq family as we will be using this IP on the PYNQ-Z2, Zybo and Zedboard, and click OK. You will get something like this:
     <p align="center">
-    <img src ="/pics/lab 3/3ipfam.JPG" width="50%" height="80%"/>
+    <img src ="pics/lab3/3_ipfam.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Compatibility under Package IP</i>
     </p>
-7.	You can also customize the address space and add memory address space using the IP Addressing and Memory category.  We won’t make any changes.
- 8.	Click on File Groups and click Merge changes from File Groups Wizard
+7.	You can also customize the address space and add memory address space using the **Addressing and Memory** category.  We won’t make any changes.
+8.	Click on File Groups and click Merge changes from File Groups Wizard.
 
     <p align="center">
-    <img src ="/pics/lab 3/4ipfile.JPG" width="60%" height="80%"/>
+    <img src ="pics/lab3/4_ipfile.jpg" width="70%" height="80%"/>
     </p>
     <p align = "center">
     <i> Compatibility under Package IP</i>
     </p>
 
-    This is to update the IP Packager with the changes that were made to the IP and the lab3_user_logic_*.v file that was added to the project.
+    This is to update the IP Packager with the changes that were made to the IP and the lab3_user_logic.v file that was added to the project. Expand Verilog Synthesis and notice lab3_user_logic.v has been included.
 
-
-9.	Expand Verilog Synthesis and notice lab3_user_logic.v has been included
-10.	Click on Customization Parameters and again Merge changes from Customization Parameters Wizard
+9.	Click on **Customization Parameters** and again Merge changes from Customization Parameters Wizard.
 Notice that the Ports and Interfaces view now shows the user created LED port
-11.	Select **Customization Parameters**, expand **Hidden Parameters**, right-click on _LED_WIDTH_, and select **Import IP Parameters…** and click OK.
-12.	Select Customization GUI and notice that the Led Width is visible.
+10.	Select **Customization Parameters**, expand **Hidden Parameters**, right-click on _LED_WIDTH_, and select **Import IP Parameters…** and click OK.
+11.	Select **Customization GUI** and notice that the Led Width is visible.
 
     <p align="center">
-    <img src ="/pics/lab 3/5ipcustomzn.JPG" width="75%" height="80%"/>
+    <img src ="pics/lab3/5_ipcustomzn.jpg" width="75%" height="80%"/>
     </p>
     <p align = "center">
     <i> Customization GUI under Package IP</i>
     </p>
 
-13.	Select Review and Package, and notice the path where the IP will be created.
-14.	Click Package IP. Click Yes and the project will close when complete.
-15.	In the original Vivado window click File > Close Project
+12.	Select Review and Package, and notice the path where the IP will be created.
+13.	Click **Re-Package IP**. Click Yes and the project will close when complete.
+14.	In the original Vivado window click **File > Close Project**.
 
 ### Modify the Project Settings
 
 1.	Start the Vivado if necessary and open either the lab2 project you created in the previous lab or the lab2 project in the labsolution directory
-2.	Select **File > Save Project As…** to open the Save Project As dialog box. Enter lab3 as the project name.  Make sure that the Create Project Subdirectory option is checked, the project directory path is {labs}\ and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter lab3 as the project name.  Make sure that the Create Project Subdirectory option is checked, the project directory path is {labs}\ and click OK.
 This will create the lab3 directory and save the project and associated directory with lab3 name.
 3.	Click **Settings** in the Flow Navigator pane.
 4.	Select **IP > Repository** in the left pane of the Project Settings form.
-5.	Click on the Blue Plus button, browse to **{labs}\led_ip** and click Select.
-The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
-
-
+5.	Click on the Blue Plus button, browse to **{labs}\led_ip** and click Select. The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
     <p align="center">
-    <img src ="/pics/lab 3/6chooseip.JPG" width="60%" height="80%"/>
+    <img src ="pics/lab3/6_chooseip.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i> Specify IP Repository </i>
@@ -199,7 +194,7 @@ The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
 9.	Select the LED port on the led_ip instance (by clicking on its pin), right-click and select **Make External**.
 
     <p align="center">
-    <img src ="/pics/lab 3/7LEDext.JPG" width="70%" height="80%"/>
+    <img src ="pics/lab3/7_LEDext.jpg" width="70%" height="80%"/>
     </p>
     <p align = "center">
     <i> LED external port added and connected </i>
@@ -213,11 +208,11 @@ The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
 3.	Double click on the block to customize it and change the number of BRAM interfaces to 1 and click OK.
 Notice that the AXI Protocol being used is AXI4 instead of AXI4Lite since BRAM can provide higher bandwidth and the controller can support burst transactions.
 4.	Click on **Run Connection Automation** to add and connect a Block Memory Generator by selecting **axi_bram_ctrl_0/BRAM_PORTA** and click OK (This could be added manually)
-5.	Validate the design to ensure there are no errors (F6), and click the regenerate button ( ) to redraw the diagram.
+5.	Validate the design to ensure there are no errors (F6), and click the regenerate button to redraw the diagram.
 The design should look similar to the figure below.
 
   <p align="center">
-  <img src ="/pics/lab 3/8Completeblck.JPG" width="90%" height="80%"/>
+  <img src ="pics/lab3/8_Completeblck.jpg" width="90%" height="80%"/>
   </p>
   <p align = "center">
   <i> Completed Block Diagram </i>
