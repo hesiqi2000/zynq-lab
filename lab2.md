@@ -186,28 +186,51 @@ The width of the interface will be automatically determined by the upstream bloc
     <i> Import resources from the local file system</i>
     </p>
 
+1. Build the project either by clicking the hammer button or by right-clicking on the application project and selecting Build Project. 
+
 ### Test in Hardware
 
-1.	Make sure that micro-USB cable(s) is(are) connected between the board and the PC. Turn ON the power of the board.
-2.	Open Terminal from **Window > Show View > Other..**
-3.	Click on the connect button and if required, select appropriate COM port (depends on your computer), and configure it with the parameters as shown in lab1. (These settings may have been saved from previous lab, lab1)
-1.	Select **Xilinx Tools > Program FPGA**
-
-2.	Click Program to download the hardware bitstream.  When FPGA is being programmed, the DONE LED (green color) will be off, and will turn on again when the FPGA is programmed
-3.	Select TestApp in Project Explorer, right-click and select **Run As > Launch on Hardware** (System Debugger) to download the application, execute *ps7_init*, and execute *TestApp.elf*
-4.	You should see the something similar to the  following output on Terminal console
-
+1.	Make sure that micro-USB cable(s) is(are) connected between the board and the PC. Change the boot mode to JTAG. Turn ON the power of the board.
+1. Open a serial communication utility for the COM port assigned on your system. The Vitis software platform provides a serial terminal utility will be used throughout the tutorial. You can also use your preferred serial terminal application.
+   * To open this utility, select **Window > Show view**.
+   * In the Show View dialog box, type **terminal** in the search box.
+   * Select **Vitis Serial Terminal** and click **Open**.
     <p align="center">
-    <img src ="pics/lab2/aop.jpg"  width="30%" height="80%"/>
+    <img src ="pics/lab1/15_OpenVitisTerminal.jpg" width="35%" height="80%"/>
     </p>
     <p align = "center">
-    <i> SDK Terminal output </i>
+    <i> Open the Vitis Serial Terminal </i>
     </p>
 
-5.	Select Console tab and click on the Terminate button ( ) to stop the program
-6.	Close SDK and Vivado programs by selecting **File > Exit** in each program
-7.	Power OFF the board
+2. Click the Add button in the Vitis Serial Terminal to connect to a serial terminal. Select the port from the dropdown menu. Keep the Advanced Settings as-is. Click OK.
+   <p align="center">
+    <img src ="pics/lab1/16_ConnectSerial.jpg" width="35%" height="80%"/>
+    </p>
+    <p align = "center">
+    <i> Connect to serial port </i>
+    </p>
+
+3. Right-click the application project and select **Run As > Run Configurations**.
+4. Right-click **Single Application Debug** and click **New Configuration**. The Vitis software platform creates the new run configuration, named Debugger_TestApp-Default.
+
+5. Click the **Target Setup** page and review the settings. The default choice is the Tcl script.
+    <p align="center">
+    <img src ="pics/lab2/13_RunConfig.jpg" width="90%" height="80%"/>
+    </p>
+    <p align = "center">
+    <i> Debug a Program using AApplication Debugger </i>
+    </p>
+
+6. Click **Run**. You should see the following output on the Terminal tab.
+    <p align="center">
+    <img src ="pics/lab2/14_TestAppRun.jpg" width="60%" height="80%"/>
+    </p>
+    <p align = "center">
+    <i> Connect to serial port </i>
+    </p>
+
+7. Close Vivado and Vitis IDE by selecting **File > Exit** in each program.
 
 ## Conclusion
 
-GPIO peripherals were added from the IP catalog and connected to the Processing System through the 32b Master GP0 interface.  The peripherals were configured and external FPGA connections were established.  A TestApp application project was created and the functionality was verified after downloading the bitstream and executing the program.
+GPIO peripherals were added from the IP catalog and connected to the Processing System through the 32b Master GP0 interface. The peripherals were configured and external FPGA connections were established. A TestApp application project was created and the functionality was verified after downloading the bitstream and executing the program.

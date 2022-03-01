@@ -201,7 +201,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 ### Test in Hardware
 
-1. Setup the hardware as shown in README.md
+1.	Make sure that micro-USB cable(s) is(are) connected between the board and the PC. Change the boot mode to JTAG. Turn ON the power of the board.
 1. Open a serial communication utility for the COM port assigned on your system. The Vitis software platform provides a serial terminal utility will be used throughout the tutorial. You can also use your preferred serial terminal application.
    * To open this utility, select **Window > Show view**.
    * In the Show View dialog box, type **terminal** in the search box.
