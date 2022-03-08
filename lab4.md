@@ -18,7 +18,7 @@ After completing this lab, you will be able to:
 
 This will create the lab4 directory and save the project and associated directory with lab4 name.
 
-### Export to SDK and create Application Project
+### Export to Vitis and create Application Project
 
 1.	Click **File > Export > Export Hardware**.
 1.	Click on the checkbox of **Include the bitstream** and click **OK**.
@@ -285,15 +285,15 @@ You should see results similar to that below:
     </p>
 
 
-    Flip the DIP switches and verify that the LEDs light according to the switch settings. Verify that you see the results of the DIP switch and Push button settings in SDK Terminal.
+    Flip the DIP switches and verify that the LEDs light according to the switch settings. Verify that you see the results of the DIP switch and Push button settings in Terminal.
 
 1.	Select lab4 in Project Explorer, right-click and select **Run As > 1 Launch on Hardware (Single Application Debugger)** to download the application.
 
      Click OK if prompted to relaunch the session.
 
-     Observe the SDK Terminal window as the program executes.  Play with dip switches and observe the LEDs.  Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
+     Observe the Terminal window as the program executes.  Play with dip switches and observe the LEDs.  Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
 
-3.	Exit SDK and Vivado.
+3.	Exit Vitis and Vivado.
 4.	Power **OFF** the board.
 
 ## Conclusion

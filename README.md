@@ -98,7 +98,7 @@ PYNQ-Z2:[/board_files](https://www.xilinx.com/support/documentation/university/v
 
 ### Lab 5
 
-   This lab guides you through the process of writing a software application that utilizes the private timer of the CPU.  You will refer to the timer’s API in the SDK to create and debug the software application.  The application you will develop will monitor the dip switch values and increment a count on the LEDs.  The application will exit when the center push button is pressed.
+   This lab guides you through the process of writing a software application that utilizes the private timer of the CPU.  You will refer to the timer’s API in the Vitis IDE to create and debug the software application.  The application you will develop will monitor the dip switch values and increment a count on the LEDs.  The application will exit when the center push button is pressed.
 
    You will use the hardware design created in lab 4 to use CPU’s private timer (see Figure).  You will develop the code to use it.
 

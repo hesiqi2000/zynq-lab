@@ -21,7 +21,7 @@ After completing this lab, you will be able to:
 1.	In the Default Part window, select the Boards tab, and depending on the board you are using, (if you can't find the board you are looking for, refer to [README.md]() for setup) and click Next.
 
     <p align="center">
-    <img src ="pics/lab1/1_BoardsandParts.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/1_BoardsandParts.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i>Boards and Parts Selection</i>
@@ -29,7 +29,7 @@ After completing this lab, you will be able to:
 
 1.	Check the Project Summary (should be similar to what you see below) and click Finish to create an empty Vivado project.
     <p align="center">
-    <img src ="pics/lab1/2_ProjectSummary.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/2_ProjectSummary.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i>Project Summary</i>
@@ -50,7 +50,7 @@ After completing this lab, you will be able to:
 
 1.	Right-click anywhere in the Diagram workspace and select **Add IP**.
     <p align="center">
-    <img src ="pics/lab1/4_AddIP.jpg" width="60%" height="80%"/>
+    <img src ="pics/lab1/4_AddIP.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i>Add IP to Block Diagram</i>

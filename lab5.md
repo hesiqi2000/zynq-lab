@@ -59,7 +59,7 @@ Look at the *XScuTimer_LookupConfig( )* and *XScuTimer_CfgInitialize( )* API fun
 
 ###	Correct the errors
 
-1.	In SDK, in the **Problems** tab, double-click on the unknown type name x for the parse error. This will open the source file and bring you around to the error place.  
+1.	In Vitis IDE, in the **Problems** tab, double-click on the unknown type name x for the parse error. This will open the source file and bring you around to the error place.  
 
     <p align="center">
     <img src ="pics/lab5/3_fsterr.jpg" width="80%" height="80%"/>
@@ -271,7 +271,7 @@ int main (void)
 16.	Flip the switches to change the delay and observe the effect.
 17.	Press a push button and observe that the program suspends at the fourth breakpoint.  The timer register content as well as the **control register** (offset 0x08) is red as the counter value had changed and the control register value changed due to timer stop function call. (In the Memory monitor, you may need to right click on the address that is being monitored and click Reset to refresh the memory view.)
 18.	Terminate the session by clicking on the **Terminate** button.
-19.	Exit the SDK and Vivado.
+19.	Exit the Vitis and Vivado.
 20.	Power **OFF** the board.
 
 ## Conclusion
