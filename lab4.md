@@ -14,7 +14,7 @@ After completing this lab, you will be able to:
 ### Opening the Project
 
 1.	Start the Vivado if necessary and open the lab3 project (lab3.xpr) you created in the previous lab.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter lab4 as the project name.  Make sure that the Create Project Subdirectory option is checked, the project directory path is {labs} and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter lab4 as the project name.  Make sure that the **Create Project Subdirectory** option is checked, the project directory path is {labs} and click OK.
 
 This will create the lab4 directory and save the project and associated directory with lab4 name.
 

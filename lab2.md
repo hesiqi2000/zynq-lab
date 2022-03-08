@@ -11,9 +11,8 @@ After completing this lab, you will be able to:
 
 ### Open the Project
 
-1. Open the previous project, or the lab1 project from the **{labsolutions}** directory, and save the project as lab2. Open the Block Design.
-1.	Start Vivado, if necessary, and open either the lab1 project (lab1.xpr) you created in the previous lab or from the **{labsolutions}** directory using the Open Project link in the Getting Started page.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab2** as the project name.  Make sure that the Create Project Subdirectory option is checked, the project directory path is **{labs}** and click OK.
+1. Open the previous project
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab2** as the project name.  Make sure that the **Create Project Subdirectory** option is checked, the project directory path is **{labs}** and click OK.
 This will create the lab2 directory and save the project and associated directory with lab2 name.
 
 ### Add Two Instances of GPIO
