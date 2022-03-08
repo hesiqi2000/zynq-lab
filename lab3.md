@@ -182,16 +182,14 @@ This will create the lab3 directory and save the project and associated director
 ### Add the Custom IP, BRAM, and the Constraints
 
 1.	Click Open Block Design under IP Integrator in the Flow Navigator pane
-2.	Right Click on the Diagram window and **add IP..**. Search for **led_ip_v1.0** in the catalog by typing **“led”** in the search field.
-3.	Double-click led_ip_v1_0 to add the core to the design.
-4.	Select the IP in the block diagram and change the instance name to led_ip in the properties view.
+2.	Right Click on the Diagram window and **add IP..**. Search for **led_ip_v1.0** in the catalog by typing _led_ in the search field.
+3.	Double-click **led_ip_v1_0** to add the core to the design.
+4.	Select the IP in the block diagram and change the instance name to **led_ip** in the properties view.
 5.	Double click the block to open the configuration properties
 6.	For the _ZedBoard_, leave the Led Width set to 8, or for the _Zybo_ and _PYNQ-Z2_, set the width to 4.
 7.	Click OK.
 8.	Click on Run Connection Automation, select **/led_ip/S_AXI** and click OK to automatically make the connection from the AXI Interconnect to the IP.
-
-    Click the regenerate button to redraw the diagram.
-9.	Select the LED port on the led_ip instance (by clicking on its pin), right-click and select **Make External**.
+9.	Select the LED port on the led_ip instance (by clicking on its pin), right-click and select **Make External**. Rename the port as **LED**.
 
     <p align="center">
     <img src ="pics/lab3/7_LEDext.jpg" width="70%" height="80%"/>
@@ -201,12 +199,12 @@ This will create the lab3 directory and save the project and associated director
     </p>
 
 
-10.	Select the Address Editor tab and verify that an address has been assigned to led_ip.
+10.	Select the **Address Editor** tab and verify that an address has been assigned to led_ip.
 
-1.	In the Block Diagram, Right click and select the Add IP option. Search for _BRAM_ and add one instance of the _AXI BRAM Controller_
+1.	In the Block Diagram, Right click and select the Add IP option. Search for _BRAM_ and add one instance of the **AXI BRAM Controller**
 2.	Run Connection Automation on **axi_bram_ctrl_0/S_AXI** and click OK when prompted to connect it to the M_AXI_GP0 Master.
 3.	Double click on the block to customize it and change the number of BRAM interfaces to 1 and click OK.
-Notice that the AXI Protocol being used is AXI4 instead of AXI4Lite since BRAM can provide higher bandwidth and the controller can support burst transactions.
+Notice that the AXI Protocol being used is **AXI4** instead of AXI4Lite since BRAM can provide higher bandwidth and the controller can support burst transactions.
 4.	Click on **Run Connection Automation** to add and connect a Block Memory Generator by selecting **axi_bram_ctrl_0/BRAM_PORTA** and click OK (This could be added manually)
 5.	Validate the design to ensure there are no errors (F6), and click the regenerate button to redraw the diagram.
 The design should look similar to the figure below.
@@ -225,7 +223,7 @@ The design should look similar to the figure below.
 2.	Click the Blue Plus button, and then **Add Files…**, browse to the **{sources}\lab3** folder, select lab3_zed.xdc for the _ZedBoard_, lab3_pynq_z2.xdc for _PYNQ-Z2_ or lab3_Zybo.xdc  for the _Zybo_
 3.	Click **Finish** to add the file.
 4.	Expand Constraints folder in the Sources pane, and double click the **lab3_*.xdc** file entry to see its content. This file contains the pin locations and IO standards for the LEDs on the _Zynq_ board. This information can usually be found in the manufacturer’s datasheet for the board.
-5.	Right click on system.bd and select Generate output products
+5.	Right click on system.bd and select **Generate output products**
 6.	Click on **Generate Bitstream** and click Yes if prompted to save the Block Diagram, and click Yes again if prompted to launch **Synthesis** and **Implementation**. Click Cancel when prompted to Open the Implemented Design
 
 ## Conclusion
