@@ -46,8 +46,8 @@ This will create the lab2 directory and save the project and associated director
    </p>
 
 11.	Double click on the _AXI GPIO block_ to open the customization window.
-12.	From the Board Interface drop down, select sws **8bits** for _ZedBoard_ or sws 2bits for _PYNQ-Z2_ for **GPIO IP Interface**.
-13.	Next, click the IP configuration tab, and notice the width has already been set to match the switches on the *Zedboard* (8), or *PYNQ-Z2* (2)  
+12.	From the Board Interface drop down, in **GPIO IP Interface**, select sws **2bits** for _PYNQ-Z2_.
+13.	Next, click the IP configuration tab, and notice the width has already been set to match the switches on the *PYNQ-Z2* (2)  
 
     Notice that the peripheral can be configured for two channels, but, since we want to use only one channel without interrupt, leave the **Enable Dual Channel** and **Enable Interrupt** unchecked.  
 
@@ -63,7 +63,7 @@ This will create the lab2 directory and save the project and associated director
    </p>
 
 17.	Add another instance of the GPIO peripheral (Add IP). Name it as **buttons**
-19.	Double click on the IP block, select the _btns GPIO interface_ (btns_5bits for the _Zedboard_  and btns 4bits for the _PYNQ-Z2_) and click OK.
+19.	Double click on the IP block, in the **GPIO interface** select btns **4bits** for the _PYNQ-Z2_, click OK.
 
     At this point connection automation could be run, or the block could be connected manually. This time the block will be connected manually.
 20.	Double click on the _AXI Interconnect_ (name : ps7_0_axi_periph) and change the Number of **Master Interfaces** to 2 and click OK
@@ -118,7 +118,7 @@ Note that both peripherals are assigned in the address range of _0x40000000_ to 
 3.	Select the **GPIO_0** port and change the name to **switches** in its properties form.
 The width of the interface will be automatically determined by the upstream block.
 4.	For the buttons GPIO, click on the **Run Connection Automation** link.
-5.	In the opened GUI, select **btns_5bits** (for _ZedBoard_) or **btns_4bits** (for _PYNQ-Z2_) under the options section.
+5.	In the opened GUI, select **btns_4bits** (for _PYNQ-Z2_) under the options section.
 6.	Click OK.
 7.	Select the created external port and change its name as **buttons**.
 8.	Run Design Validation (**Tools -> Validate Design**) and verify there are no errors.
@@ -142,7 +142,7 @@ The width of the interface will be automatically determined by the upstream bloc
    <i>Switch to the IO planning view</i>
    </p>
 
-11.	In the I/O ports tab, expand the two GPIO icons, and expand *buttons_tri_i*, and *switches_tri_i*, and notice that the ports have been automatically assigned pin locations, along with the other Fixed IO ports in the design, and an I/O Std of _LVCMOS25_ (for *Zedboard*) and _LVCMOS33_ (*PYNQ-Z2*) has been applied. If they were not automatically applied, pin constraints can be included in a constraints file, or entered manually or modified through the I/O Ports tab.
+11.	In the I/O ports tab, expand the two GPIO icons, and expand *buttons_tri_i*, and *switches_tri_i*, and notice that the ports have been automatically assigned pin locations, along with the other Fixed IO ports in the design, and an I/O Std of _LVCMOS33_ (*PYNQ-Z2*) has been applied. If they were not automatically applied, pin constraints can be included in a constraints file, or entered manually or modified through the I/O Ports tab.
 
 ### Generate Bitstream and Export Hardware
 

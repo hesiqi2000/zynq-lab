@@ -127,7 +127,7 @@ After completing this lab, you will be able to:
 3.	For the purpose of this exercise, uncheck the **AXI Peripheral** box and check the **Basic Elements** and click OK.
 4.	Select **Compatibility**. This shows the different Xilinx FPGA Families that the IP supports. The value is inherited from the device selected for the project.
 5.	Click the Blue Plus then **Add Family Explicitly…** from the menu.
-6.	Select the Zynq family as we will be using this IP on the PYNQ-Z2 and Zedboard, and click OK. You will get something like this:
+6.	Select the Zynq family as we will be using this IP on the PYNQ-Z2, and click OK. You will get something like this:
     <p align="center">
     <img src ="pics/lab3/3_ipfam.jpg" width="80%" height="80%"/>
     </p>
@@ -185,7 +185,7 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 3.	Double-click **led_ip_v1_0** to add the core to the design.
 4.	Select the IP in the block diagram and change the instance name to **led_ip** in the properties view.
 5.	Double click the block to open the configuration properties
-6.	For the _ZedBoard_, leave the **Led Width** set to 8, for the _PYNQ-Z2_, set the width to 4.
+6.	For the _PYNQ-Z2_, set the width to **4**.
 7.	Click OK.
 8.	Click on Run Connection Automation, select **/led_ip/S_AXI** and click OK to automatically make the connection from the AXI Interconnect to the IP.
 9.	Select the LED port on the led_ip instance (by clicking on its pin), right-click and select **Make External**. Rename the port as **LED**.
@@ -219,7 +219,7 @@ The design should look similar to the figure below.
 7.	Press **F6** to validate the design one last time.
 
 1.	Click **Add Sources** in the Flow Navigator pane, select **Add or Create Constraints**, and click Next.
-2.	Click the Blue Plus button, and then **Add Files…**, browse to the **{sources}\lab3** folder, select lab3_zed.xdc for the _ZedBoard_, lab3_pynq_z2.xdc for _PYNQ-Z2_.
+2.	Click the Blue Plus button, and then **Add Files…**, browse to the **{sources}\lab3** folder, select lab3_pynq_z2.xdc for _PYNQ-Z2_.
 3.	Click **Finish** to add the file.
 4.	Expand Constraints folder in the Sources pane, and double click the **lab3_*.xdc** file entry to see its content. This file contains the pin locations and IO standards for the LEDs on the _Zynq_ board. This information can usually be found in the manufacturer’s datasheet for the board.
 5.	Right click on system.bd and select **Generate output products**
