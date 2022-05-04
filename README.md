@@ -21,7 +21,7 @@ On the main GitHub webpage for a repository, you can select **Clone or download*
 If you prefer to use **git** you can clone this repository:
 
 ```
-  git clone https://github.com/xupgit/Zynq-Design-using-Vivado.git
+  git clone https://github.com/qixingzhang/Embedded-System-Standalone-Flow-Design-using-Zynq.git
 ```
 In the instructions for the labs;
 
@@ -45,8 +45,6 @@ PYNQ-Z2:[/board_files](https://www.xilinx.com/support/documentation/university/v
 ## Hardware Setup
 
 **PYNQ-Z2**:  Connect a micro USB from the board to the PC. Make sure that a jumper is connected to JTAG (between JP1_1 and JP1_2) and another one of them should be connected across the USB pins (between J9_2 and J9_3).
-
-**ZedBoard**:  Make sure that two micro-usb cables are used between the PC and the PROG and the UART connectors of the board and that the board is placed in the JTAG mode (MIO6-MIO2 jumpers are in the Dn position). 
 
 ## Labs Overview:
 
