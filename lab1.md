@@ -14,10 +14,10 @@ After completing this lab, you will be able to:
 1.	Open Vivado by selecting **Start > All Programs > Xilinx Design Tools > Vivado 2021.2**
 1.	Click **Create Project** to start the wizard. You will see the Create a New Vivado Project dialog box. Click Next.
 1.	Click the Browse button of the Project Location field of the New Project and browse to **{labs}**, and click Select.
-1.	Enter **lab1** in the Project Name field.  Make sure that the Create Project Subdirectory box is checked.  Click Next.
+1.	Enter **lab1** in the Project Name field.  Make sure that the **Create Project Subdirectory** box is checked.  Click Next.
 1.	In the Project Type form select **RTL Project**, and click Next
-1.	In the Add Sources form, select Verilog as the Target language and **Mixed** as the Simulator language, and click Next
-1.	Click Next two more times to skip Adding Existing IP and Add Constraints
+1.	In the Add Sources form, select **Verilog** as the Target language and **Mixed** as the Simulator language, and click Next
+1.	Click **Next** two more times to skip Adding Existing IP and Add Constraints
 1.	In the Default Part window, select the Boards tab, and depending on the board you are using, (if you can't find the board you are looking for, refer to [README.md]() for setup) and click Next.
 
     <p align="center">
@@ -57,11 +57,11 @@ After completing this lab, you will be able to:
     </p>        
 
 
-1.	Once the **IP Catalog** opens, type “zyn” into the Search bar, find and double click on **ZYNQ7 Processing System** entry, or click on the entry and hit the Enter key to add it to the design.
+1.	Once the **IP Catalog** opens, type “zynq” into the Search bar, find and double click on **ZYNQ7 Processing System** entry, or click on the entry and hit the Enter key to add it to the design.
 
 1.	Notice the message at the top of the Diagram window in a green label saying that Designer Assistance available. Click **Run Block Automation**.  
 
-1.	A new window pops up called the Run Block Automation window. In it, select /processing_system7_0, leave the default settings and click OK
+1.	A new window pops up called the Run Block Automation window. In it, select **/processing_system7_0**, leave the default settings and click OK
 
 1. Once Block Automation has been complete, notice that ports have been automatically added for the DDR and Fixed IO, and some additional ports are now visible. The imported configuration for the Zynq related to the board has been applied which will now be modified. The block should finally look like this:
 
@@ -137,7 +137,7 @@ After completing this lab, you will be able to:
     <i> Generating output products </i>
     </p>  
 
-1. Right-click again on system.bd, and select Create **HDL Wrapper…** to generate the top-level VHDL model. Leave the Let Vivado manager wrapper and auto-update option selected, and click OK
+1. Right-click again on system.bd, and select Create **HDL Wrapper…** to generate the top-level VHDL model. Leave the **Let Vivado manager wrapper** and **auto-update** option selected, and click OK
 
     The system_wrapper.v file will be created and added to the project.  Double-click on the file to see the content in the Auxiliary pane.
     <p align="center">
@@ -147,7 +147,7 @@ After completing this lab, you will be able to:
     <i> The HDL Wrapper file generated and added to the project </i>
     </p>  
 
-1. Notice that the Verilog file is already Set As the Top module in the design, indicated by the icon.
+1. Notice that the Verilog file is already set as the top module in the design, indicated by the icon.
 1. Select **File > Export > Export hardware** and click OK. (Save the project if prompted)
 Note:  Since we do not have any hardware in Programmable Logic (PL) there is no bitstream to generate, hence the Include bitstream option is not necessary at this time.
 

@@ -6,7 +6,7 @@ After completing this lab, you will be able to:
 *	Write a basic application to access an IP peripheral in Vitis IDE
 *	Develop a linker script
 *	Partition the executable sections into both the DDR3 and BRAM spaces
-*	Generate an elf executable file
+*	Generate an ELF executable file
 *	Download the bitstream and application and verify on a Zynq board
 
 ## Steps
@@ -14,16 +14,16 @@ After completing this lab, you will be able to:
 ### Opening the Project
 
 1.	Start the Vivado if necessary and open the lab3 project (lab3.xpr) you created in the previous lab.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter lab4 as the project name.  Make sure that the **Create Project Subdirectory** option is checked, the project directory path is {labs} and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab4** as the project name.  Make sure that the **Create Project Subdirectory** option is checked, the project directory path is **{labs}** and click OK.
 
-This will create the lab4 directory and save the project and associated directory with lab4 name.
+    This will create the lab4 directory and save the project and associated directory with lab4 name.
 
 ### Export to Vitis and create Application Project
 
 1.	Click **File > Export > Export Hardware**.
 1.	Click on the checkbox of **Include the bitstream** and click **OK**.
 1.	Select **Tools > Launch Vitis IDE** and click OK.
-1.	To tidy up the workspace and save unnecessary building of a project that is not being used, right click on the _TestApp_system_ and _mem_test_system_ projects from the previous lab, and click **Close System Project**, as these projects will not be used in this lab. They can be reopened later if needed.
+1.	To tidy up the workspace and save unnecessary building of a project that is not being used, right click on the **TestApp_system** and **mem_test_system** projects from the previous lab, and click **Close System Project**, as these projects will not be used in this lab. They can be reopened later if needed.
 1. Right click on the previous paltform project (system_wrapper) and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click OK.
 1. 	Select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
 1. In the Platform Selection window, under the tag **Select a platform from repository**, select the previous added platform (**system_wrapper [custom]**). Click Next.
@@ -44,8 +44,8 @@ This will create the lab4 directory and save the project and associated director
     </p>
 
 1.	View the various C and Header files associated with the _GPIO_ by clicking Files at the top of the page.
-1.	Double-click on lab4.c in the Project Explorer view to open the file.  This will populate the _Outline tab_.  
-1.	Double click on _xgpio.h_ in the Outline view on the right of the screen and review the contents of the file to see the available function calls for the GPIO.
+1.	Double-click on lab4.c in the Project Explorer view to open the file.  This will populate the **Outline** tab.  
+1.	Double click on **xgpio.h** in the Outline view on the right of the screen and review the contents of the file to see the available function calls for the GPIO.
 
     <p align="center">
     <img src ="pics/lab4/2_outlinevw.jpg" width="40%" height="80%"/>
@@ -59,12 +59,12 @@ This will create the lab4 directory and save the project and associated director
 
     Find the descriptions for the following functions:
 
-    **XGpio_Initialize** (XGpio \*InstancePtr, u16 DeviceId)
+    **XGpio_Initialize(XGpio \*InstancePtr, u16 DeviceId)**
     _InstancePtr_ is a pointer to an XGpio instance.  The memory the pointer references must be pre-allocated by the caller.  Further calls to manipulate the component through the XGpio API must be made with this pointer.
 
     _DeviceId_ is the unique id of the device controlled by this XGpio component.  Passing in a device id associates the generic XGpio instance to a specific device, as chosen by the caller or application developer.
 
-    **XGpio_SetDataDirection** (XGpio \*InstancePtr, unsigned Channel, u32 DirectionMask)
+    **XGpio_SetDataDirection(XGpio \*InstancePtr, unsigned Channel, u32 DirectionMask)**
 
     _InstancePtr_ is a pointer to the XGpio instance to be worked on.
 
@@ -72,20 +72,20 @@ This will create the lab4 directory and save the project and associated director
 
     _DirectionMask_ is a bitmask specifying which bits are inputs and which are outputs.  Bits set to 0 are output and bits set to 1 are input.  
 
-    **XGpio_DiscreteRead**(XGpio \*InstancePtr, unsigned channel)
+    **XGpio_DiscreteRead(XGpio \*InstancePtr, unsigned channel)**
 
     _InstancePtr_ is a pointer to the XGpio instance to be worked on.
 
     _Channel_ contains the channel of the GPIO (1 or 2) to operate on
 1.	Open the header file **xparameters.h** by double-clicking on **xparameters.h** in the Outline tab
 
-     The xparameters.h file contains the address map for peripherals in the system. This file is generated from the hardware platform description from Vivado. Find the following #define used to identify the switches peripheral:
+     The **xparameters.h** file contains the address map for peripherals in the system. This file is generated from the hardware platform description from Vivado. Find the following **#define** used to identify the switches peripheral:
     ```C
     #define XPAR_SWITCHES_DEVICE_ID 1
     ```
     > Note the number might be different
 
-    Notice the other #define XPAR_SWITCHES* statements in this section for the switches peripheral, and in particular the address of the peripheral defined by: XPAR_SWITCHES_BASEADDR
+    Notice the other **#define XPAR_SWITCHES*** statements in this section for the switches peripheral, and in particular the address of the peripheral defined by **XPAR_SWITCHES_BASEADDR**
 
 1.	Modify line 14 of lab4.c to use this macro (#define) in the XGpio_Initialize function.
 
@@ -175,9 +175,9 @@ Notice the files in this directory and open **led_ip.c**. This file only include
     #define LED_IP_mWriteReg(BaseAddress, RegOffset, Data) \
             Xil_Out32((BaseAddress) + (RegOffset), (Xuint32)(Data))
     ```
-    For this driver, you can see the macros are aliases to the lower level functions *Xil_Out32( )* and *Xil_Out32( )*. The macros in this file make up the higher level API of the led_ip driver. If you are writing your own driver for your own IP, you will need to use low level functions like these to read and write from your IP as required. The low level hardware access functions are wrapped in your driver making it easier to use your IP in an Application project.
+    For this driver, you can see the macros are aliases to the lower level functions **Xil_Out32( )** and **Xil_Out32( )**. The macros in this file make up the higher level API of the led_ip driver. If you are writing your own driver for your own IP, you will need to use low level functions like these to read and write from your IP as required. The low level hardware access functions are wrapped in your driver making it easier to use your IP in an Application project.
 
-3.	Modify your C code (see figure below, or you can find modified code in lab4_sol.c from the {sources} folder) to echo the dip switch settings on the LEDs by using the led_ip driver API macros, and save the application.
+3.	Modify your C code (see figure below, or you can find modified code in lab4_sol.c from the **sources\lab4** folder) to echo the dip switch settings on the LEDs by using the led_ip driver API macros, and save the application.
 
 4.	Include the header file:
 
@@ -190,7 +190,7 @@ Notice the files in this directory and open **led_ip.c**. This file only include
     LED_IP_mWriteReg(XPAR_LED_IP_S_AXI_BASEADDR, 0, dip_check);
     ```
 
-    Remember that the hardware address for a peripheral (e.g. the macro XAR_LED_IP_S_AXI_BASEADDR in the line above) can be found in xparameters.h
+    Remember that the hardware address for a peripheral (e.g. the macro **XAR_LED_IP_S_AXI_BASEADDR** in the line above) can be found in xparameters.h
 
     ```C
     #include "xparameters.h"
@@ -293,8 +293,8 @@ You should see results similar to that below:
 
      Observe the Terminal window as the program executes.  Play with dip switches and observe the LEDs.  Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
 
-3.	Exit Vitis and Vivado.
-4.	Power **OFF** the board.
+3.	**Exit** Vitis and Vivado.
+4.	**Power OFF** the board.
 
 ## Conclusion
 

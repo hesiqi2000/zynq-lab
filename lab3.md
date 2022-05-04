@@ -42,9 +42,9 @@ After completing this lab, you will be able to:
 
 5.	Click Next
 6.	Change the Name of the interface to **S_AXI**
-7.	Leave the other settings as default and click Next (*Lite interface, Slave mode, Data Width: 32, Number of Registers: 4*)
+7.	Leave the other settings as default and click **Next** (*Lite interface, Slave mode, Data Width: 32, Number of Registers: 4*)
 
-8.	Select Edit IP and click Finish (a new Vivado Project will open)
+8.	Select **Edit IP** and click **Finish** (a new Vivado Project will open)
 
 ###	Create an interface to the LEDs
 
@@ -55,25 +55,25 @@ After completing this lab, you will be able to:
      Scroll down to line 7 where a user parameters space is provided.  
 2.	Add the line:
 
-```verilog
-7   parameter integer LED_WIDTH = 8,
-```
+    ```verilog
+    7   parameter integer LED_WIDTH = 8,
+    ```
 
 3.	Go to line 18 and add the line:
 
-```verilog
-18  output wire [LED_WIDTH-1:0] LED,
-```
-> don't forget to add commas when adding a port
+    ```verilog
+    18  output wire [LED_WIDTH-1:0] LED,
+    ```
+    > don't forget to add commas when adding a port
 
 4.	Insert the following at line ~48:
-```verilog
-48  .LED_WIDTH(LED_WIDTH),
-```
+    ```verilog
+    48  .LED_WIDTH(LED_WIDTH),
+    ```
 5.	Insert the following at line ~52:
-```verilog
-52  .LED(LED),
-```
+    ```verilog
+    52  .LED(LED),
+    ```
 
 
 6.	Save the file by selecting **File > Save File**
@@ -83,29 +83,29 @@ After completing this lab, you will be able to:
 9.	Scroll down to ~line 400 and insert the following code to instantiate the user logic for the LED IP
 (This code can be typed directly, or copied from the user_logic_instantiation.txt file in the lab3 source folder.)
 
-```verilog
-lab3_user_logic  # (
-    .LED_WIDTH(LED_WIDTH)
-)
-U1(
-    .S_AXI_ACLK(S_AXI_ACLK),
-    .slv_reg_wren(slv_reg_wren),
-    .axi_awaddr(axi_awaddr[C_S_AXI_ADDR_WIDTH-1:ADDR_LSB]),
-    .S_AXI_WDATA(S_AXI_WDATA),
-    .S_AXI_ARESETN(S_AXI_ARESETN),
-    .LED(LED)
-);
- ```
-  Check all the signals that are being connected and where they originate.
+    ```verilog
+    lab3_user_logic  # (
+        .LED_WIDTH(LED_WIDTH)
+    )
+    U1(
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .slv_reg_wren(slv_reg_wren),
+        .axi_awaddr(axi_awaddr[C_S_AXI_ADDR_WIDTH-1:ADDR_LSB]),
+        .S_AXI_WDATA(S_AXI_WDATA),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .LED(LED)
+    );
+    ```
+    Check all the signals that are being connected and where they originate.
 
 10.	Save the file by selecting **File > Save File**
-11.	Click on the Add Sources in the Flow Navigator pane, select Add or Create Design Sources, click Next, then click the Plus icon then Add Files…, browse to **{sources}\lab3**, select the lab3_user_logic.v file and click OK, and then click Finish to add the file.
+11.	Click on the **Add Sources** in the Flow Navigator pane, select **Add or Create Design Sources**, click **Next**, then click the Plus icon then Add Files…, browse to **{sources}\lab3**, select the lab3_user_logic.v file and click OK, and then click **Finish** to add the file.
 
     Check the contents of this file to understand the logic that is being implemented.  Notice the formed hierarchy.
 
-> Make sure that when adding the source lab3_user_logic.v, untick the option: Copy sources into IP directory
+    > Make sure that when adding the source lab3_user_logic.v, untick the option: Copy sources into IP directory
 
-12.	Click _Run Synthesis_ and _Save_ if prompted. (This is to check the design synthesizes correctly before packaging the IP. If this was your own design, you would  simulate it and verify functionality before proceeding)
+12.	Click **Run Synthesis** and **Save** if prompted. (This is to check the design synthesizes correctly before packaging the IP. If this was your own design, you would  simulate it and verify functionality before proceeding)
 13.	Check the _Messages_ tab for any errors and correct if necessary before moving to the next step
 
     When Synthesis completes successfully, click Cancel.
@@ -121,21 +121,21 @@ U1(
    <i> Package IP</i>
    </p>
 
->Skip the next two steps (2 and 3) if you see /Basic_Elements under the Categories section, (like the one shown in figure)
+> Skip the next two steps (2 and 3) if you see /Basic_Elements under the Categories section, (like the one shown in figure)
 
-2.	For the IP to appear in the IP catalog in particular categories, the IP must be configured to be part of those categories. To change which categories the IP will appear in the IP catalog click Blue Plus (Red box shown in the figure) in the Categories section. This opens the Choose IP Categories window
-3.	For the purpose of this exercise, uncheck the _AXI Peripheral_ box and check the Basic Elements and click OK.
+2.	For the IP to appear in the IP catalog in particular categories, the IP must be configured to be part of those categories. To change which categories the IP will appear in the **IP catalog** click Blue Plus (Red box shown in the figure) in the **Categories** section. This opens the Choose IP Categories window
+3.	For the purpose of this exercise, uncheck the **AXI Peripheral** box and check the **Basic Elements** and click OK.
 4.	Select **Compatibility**. This shows the different Xilinx FPGA Families that the IP supports. The value is inherited from the device selected for the project.
 5.	Click the Blue Plus then **Add Family Explicitly…** from the menu.
-6.	Select the Zynq family as we will be using this IP on the PYNQ-Z2, Zybo and Zedboard, and click OK. You will get something like this:
+6.	Select the Zynq family as we will be using this IP on the PYNQ-Z2 and Zedboard, and click OK. You will get something like this:
     <p align="center">
     <img src ="pics/lab3/3_ipfam.jpg" width="80%" height="80%"/>
     </p>
     <p align = "center">
     <i> Compatibility under Package IP</i>
     </p>
-7.	You can also customize the address space and add memory address space using the **Addressing and Memory** category.  We won’t make any changes.
-8.	Click on File Groups and click Merge changes from File Groups Wizard.
+7.	You can also customize the address space and add memory address space using the **Addressing and Memory** category.  We won’t make any changes this time.
+8.	Click on **File Groups** and click **Merge changes** from File Groups Wizard.
 
     <p align="center">
     <img src ="pics/lab3/4_ipfile.jpg" width="70%" height="80%"/>
@@ -148,7 +148,7 @@ U1(
 
 9.	Click on **Customization Parameters** and again Merge changes from Customization Parameters Wizard.
 Notice that the Ports and Interfaces view now shows the user created LED port
-10.	Select **Customization Parameters**, expand **Hidden Parameters**, right-click on _LED_WIDTH_, and select **Import IP Parameters…** and click OK.
+10.	Select **Customization Parameters**, expand **Hidden Parameters**, right-click on **LED_WIDTH**, and select **Import IP Parameters…** and click OK.
 11.	Select **Customization GUI** and notice that the Led Width is visible.
 
     <p align="center">
@@ -165,7 +165,7 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 ### Modify the Project Settings
 
 1.	Start the Vivado if necessary and open the lab2 project you created in the previous lab.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter lab3 as the project name.  Make sure that the **Create Project Subdirector**y option is checked, the project directory path is {labs}\ and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab3** as the project name.  Make sure that the **Create Project Subdirector**y option is checked, the project directory path is **{labs}\\** and click OK.
 3.	Click **Settings** in the Flow Navigator pane.
 4.	Select **IP > Repository** in the left pane of the Project Settings form.
 5.	Click on the Blue Plus button, browse to **{labs}\led_ip** and click Select. The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
@@ -180,12 +180,12 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 
 ### Add the Custom IP, BRAM, and the Constraints
 
-1.	Click Open Block Design under IP Integrator in the Flow Navigator pane
-2.	Right Click on the Diagram window and **add IP..**. Search for **led_ip_v1.0** in the catalog by typing _led_ in the search field.
+1.	Click **Open Block Design** under IP Integrator in the Flow Navigator pane
+2.	Right Click on the Diagram window and **add IP..**. Search for **led_ip_v1.0** in the catalog by typing "led" in the search field.
 3.	Double-click **led_ip_v1_0** to add the core to the design.
 4.	Select the IP in the block diagram and change the instance name to **led_ip** in the properties view.
 5.	Double click the block to open the configuration properties
-6.	For the _ZedBoard_, leave the Led Width set to 8, or for the _Zybo_ and _PYNQ-Z2_, set the width to 4.
+6.	For the _ZedBoard_, leave the **Led Width** set to 8, for the _PYNQ-Z2_, set the width to 4.
 7.	Click OK.
 8.	Click on Run Connection Automation, select **/led_ip/S_AXI** and click OK to automatically make the connection from the AXI Interconnect to the IP.
 9.	Select the LED port on the led_ip instance (by clicking on its pin), right-click and select **Make External**. Rename the port as **LED**.
@@ -219,7 +219,7 @@ The design should look similar to the figure below.
 7.	Press **F6** to validate the design one last time.
 
 1.	Click **Add Sources** in the Flow Navigator pane, select **Add or Create Constraints**, and click Next.
-2.	Click the Blue Plus button, and then **Add Files…**, browse to the **{sources}\lab3** folder, select lab3_zed.xdc for the _ZedBoard_, lab3_pynq_z2.xdc for _PYNQ-Z2_ or lab3_Zybo.xdc  for the _Zybo_
+2.	Click the Blue Plus button, and then **Add Files…**, browse to the **{sources}\lab3** folder, select lab3_zed.xdc for the _ZedBoard_, lab3_pynq_z2.xdc for _PYNQ-Z2_.
 3.	Click **Finish** to add the file.
 4.	Expand Constraints folder in the Sources pane, and double click the **lab3_*.xdc** file entry to see its content. This file contains the pin locations and IO standards for the LEDs on the _Zynq_ board. This information can usually be found in the manufacturer’s datasheet for the board.
 5.	Right click on system.bd and select **Generate output products**

@@ -46,14 +46,14 @@ This will create the lab2 directory and save the project and associated director
    </p>
 
 11.	Double click on the _AXI GPIO block_ to open the customization window.
-12.	From the Board Interface drop down, select sws 8bits for _ZedBoard_, sws 4bits for _Zybo_ or sws 2bits for _PYNQ-Z2_ for **GPIO IP Interface**.
-13.	Next, click the IP configuration tab, and notice the width has already been set to match the switches on the *Zedboard* (8), *Zybo* (4) or *PYNQ-Z2* (2)  
+12.	From the Board Interface drop down, select sws **8bits** for _ZedBoard_ or sws 2bits for _PYNQ-Z2_ for **GPIO IP Interface**.
+13.	Next, click the IP configuration tab, and notice the width has already been set to match the switches on the *Zedboard* (8), or *PYNQ-Z2* (2)  
 
-    Notice that the peripheral can be configured for two channels, but, since we want to use only one channel without interrupt, leave the Enable Dual Channel and Enable Interrupt unchecked.  
+    Notice that the peripheral can be configured for two channels, but, since we want to use only one channel without interrupt, leave the **Enable Dual Channel** and **Enable Interrupt** unchecked.  
 
 14.	Click OK to save and close the customization window
 15.	Notice that **Designer assistance** is available. Click on Run Connection Automation, and select **/switches/S_AXI**
-16.	Click OK when prompted to automatically connect the master and slave interfaces
+16.	Click OK when prompted to automatically connect the master and slave interfaces. Notice that two additional blocks, Processor System Reset, and AXI Interconnect have automatically been added to the design. (The blocks can be dragged to be rearranged, or the design can be redrawn.).
 
    <p align="center">
    <img src ="pics/lab2/3_Dsgnswauto.jpg"  width="60%" height="80%"/>
@@ -62,11 +62,10 @@ This will create the lab2 directory and save the project and associated director
    <i>Design with switches automatically connected</i>
    </p>
 
-  Notice two additional blocks, Processor System Reset, and AXI Interconnect have automatically been added to the design. (The blocks can be dragged to be rearranged, or the design can be redrawn.).
+17.	Add another instance of the GPIO peripheral (Add IP). Name it as **buttons**
+19.	Double click on the IP block, select the _btns GPIO interface_ (btns_5bits for the _Zedboard_  and btns 4bits for the _PYNQ-Z2_) and click OK.
 
-18.	Add another instance of the GPIO peripheral (Add IP). Name it as **buttons**
-19.	Double click on the IP block, select the _btns GPIO interface_ (btns_5bits for the _Zedboard_, btns_4bits for the _Zybo_ and btns 4bits for the _PYNQ-Z2_) and click OK.
-At this point connection automation could be run, or the block could be connected manually. This time the block will be connected manually.
+    At this point connection automation could be run, or the block could be connected manually. This time the block will be connected manually.
 20.	Double click on the _AXI Interconnect_ (name : ps7_0_axi_periph) and change the Number of **Master Interfaces** to 2 and click OK
 
     <p align="center">
@@ -76,9 +75,9 @@ At this point connection automation could be run, or the block could be connecte
     <i>Add master port to AXI Interconnect</i>
     </p>
 
-21.	Click on the s_axi port of the buttons AXI GPIO block (name: buttons), and drag the pointer towards the AXI Interconnect block.
+21.	Click on the **s_axi** port of the buttons AXI GPIO block (name: buttons), and drag the pointer towards the AXI Interconnect block.
 
-      The message 'Found 1 interface' should appear, and a green tick should appear beside the M01_AXI port on the AXI Interconnect indicating this is a valid port to connect to. Drag the pointer to this port and release the mouse button to make the connection.
+      The message "Found 1 interface" should appear, and a green tick should appear beside the M01_AXI port on the AXI Interconnect indicating this is a valid port to connect to. Drag the pointer to this port and release the mouse button to make the connection.
 22.	In a similar way, connect the following ports:
 
     *buttons s_axi_aclk -> Zynq7 Processing System  FCLK_CLK0*
@@ -119,7 +118,7 @@ Note that both peripherals are assigned in the address range of _0x40000000_ to 
 3.	Select the **GPIO_0** port and change the name to **switches** in its properties form.
 The width of the interface will be automatically determined by the upstream block.
 4.	For the buttons GPIO, click on the **Run Connection Automation** link.
-5.	In the opened GUI, select btns_5bits (for _ZedBoard_) or btns_4bits (for _Zybo_ and _PYNQ-Z2_) under the options section.
+5.	In the opened GUI, select **btns_5bits** (for _ZedBoard_) or **btns_4bits** (for _PYNQ-Z2_) under the options section.
 6.	Click OK.
 7.	Select the created external port and change its name as **buttons**.
 8.	Run Design Validation (**Tools -> Validate Design**) and verify there are no errors.
@@ -143,7 +142,7 @@ The width of the interface will be automatically determined by the upstream bloc
    <i>Switch to the IO planning view</i>
    </p>
 
-11.	In the I/O ports tab, expand the two GPIO icons, and expand *buttons_tri_i*, and *switches_tri_i*, and notice that the ports have been automatically assigned pin locations, along with the other Fixed IO ports in the design, and an I/O Std of _LVCMOS25_ (for *Zedboard*) and _LVCMOS33_ (for *Zybo* and *PYNQ-Z2*) has been applied. If they were not automatically applied, pin constraints can be included in a constraints file, or entered manually or modified through the I/O Ports tab.
+11.	In the I/O ports tab, expand the two GPIO icons, and expand *buttons_tri_i*, and *switches_tri_i*, and notice that the ports have been automatically assigned pin locations, along with the other Fixed IO ports in the design, and an I/O Std of _LVCMOS25_ (for *Zedboard*) and _LVCMOS33_ (*PYNQ-Z2*) has been applied. If they were not automatically applied, pin constraints can be included in a constraints file, or entered manually or modified through the I/O Ports tab.
 
 ### Generate Bitstream and Export Hardware
 
@@ -174,7 +173,7 @@ The width of the interface will be automatically determined by the upstream bloc
 
 1.	Name the project **TestApp**, click **Next**.
 1.  Select **standalone_ps7_cortexa9_0**, click **Next**.
-1.	Select **Empty Application(C)** and click Finish.
+1.	Select **Empty Application(C)** and click **Finish**.
 1.	Expand **TestApp** in the Explorer view, and right-click on the **src** folder, and select **Import Sources...**.
 1.  Browse to select the **{sources}\lab2** folder, click **Open Folder**.
 1.  Select **lab2.c** and click **Finish**.
@@ -220,7 +219,9 @@ The width of the interface will be automatically determined by the upstream bloc
     <i> Debug a Program using AApplication Debugger </i>
     </p>
 
-6. Click **Run**. You should see the following output on the Terminal tab.
+6. Click **Run**. 
+
+7. Play with the buttons and switches, you should see the following output on the Terminal tab.
     <p align="center">
     <img src ="pics/lab2/14_TestAppRun.jpg" width="60%" height="80%"/>
     </p>
