@@ -46,7 +46,7 @@ This will create the lab2 directory and save the project and associated director
    </p>
 
 11.	Double click on the _AXI GPIO block_ to open the customization window.
-12.	From the Board Interface drop down, in **GPIO IP Interface**, select sws **2bits** for _PYNQ-Z2_.
+12.	Click the **Board** tag, From the **Board Interface** drop down, select **sws 2bits** for **GPIO** IP Interface.
 13.	Next, click the IP configuration tab, and notice the width has already been set to match the switches on the *PYNQ-Z2* (2)  
 
     Notice that the peripheral can be configured for two channels, but, since we want to use only one channel without interrupt, leave the **Enable Dual Channel** and **Enable Interrupt** unchecked.  
@@ -63,7 +63,7 @@ This will create the lab2 directory and save the project and associated director
    </p>
 
 17.	Add another instance of the GPIO peripheral (Add IP). Name it as **buttons**
-19.	Double click on the IP block, in the **GPIO interface** select btns **4bits** for the _PYNQ-Z2_, click OK.
+19.	Double click on the IP block, in the **GPIO interface** select **btns 4bits** for the _PYNQ-Z2_, click OK.
 
     At this point connection automation could be run, or the block could be connected manually. This time the block will be connected manually.
 20.	Double click on the _AXI Interconnect_ (name : ps7_0_axi_periph) and change the Number of **Master Interfaces** to 2 and click OK
