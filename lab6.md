@@ -172,7 +172,7 @@ We want to connect the ILA core to the LED interface. Vivado prohibits connectin
 1. Right-click on any opened system projects, and click **Close System Project**.
 1. Right click on the previous paltform project _system_wrapper_ and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click **OK**.
 
-### Create an empty application project named lab2, and import the provided lab2.c file.
+### Create an empty application project named lab6, and import the provided lab6.c file.
 1. From the File menu select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
 1. In the Platform Selection window, click the tag **Select a platform from repository** and select the previous added platform (system_wrapper [custom]). Click **Next**.
 1. Name the project **lab6**, click **Next**.
