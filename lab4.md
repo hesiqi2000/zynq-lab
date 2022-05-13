@@ -23,10 +23,10 @@ After completing this lab, you will be able to:
 1.	Click **File > Export > Export Hardware**.
 1.	Click on the checkbox of **Include the bitstream** and click **OK**.
 1.	Select **Tools > Launch Vitis IDE** and click OK.
-1.	To tidy up the workspace and save unnecessary building of a project that is not being used, right click on the **TestApp_system** and **mem_test_system** projects from the previous lab, and click **Close System Project**, as these projects will not be used in this lab. They can be reopened later if needed.
-1. Right click on the previous paltform project (system_wrapper) and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click OK.
+1.	To tidy up the workspace and save unnecessary building of a project that is not being used, right click on the **lab1_system** and **lab2_system** projects from the previous lab, and click **Close System Project**, as these projects will not be used in this lab. They can be reopened later if needed.
 1. 	Select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
-1. In the Platform Selection window, under the tag **Select a platform from repository**, select the previous added platform (**system_wrapper [custom]**). Click Next.
+1.  In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the **{labs}\lab4\system_wrapper.xsa** file exported before.
+1. Enter **lab4_platform** as the _Platform name_, click **Next.**
 1.	Enter **lab4** as the Project Name. Click Next.
 1.  Select the domain with name **standalone_ps7_\***, click Next.
 1.	Click Next, and select **Empty Application(C)** and click Finish.
@@ -246,8 +246,7 @@ You should see results similar to that below:
 
 1.	Make sure that micro-USB cable(s) is(are) connected between the board and the PC. Change the boot mode to JTAG. Turn ON the power of the board.
 1. Open the **Vitis Serial Terminal** and add a connection to the corresponding port.
-2. Right-click the application project and select **Run As > Run Configurations**.
-3. Right-click **Single Application Debug** and click **New Configuration**. The Vitis software platform creates the new run configuration, named Debugger_TestApp-Default.
+1. Right-click **lab4_system > lab4** and select **Launch Hardware (Single Application Debug)**.
 
 4. Click **Run**. You should see the following output on the Terminal tab.
     <p align="center">
@@ -257,11 +256,11 @@ You should see results similar to that below:
     <i> Connect to serial port </i>
     </p>
 
-    Note: Setting the DIP switches and push buttons will change the results displayed.
+    >Note: Setting the DIP switches and push buttons will change the results displayed.
 
 
 
-1.	Right click on lab4 and click **Generate Linker Script…**
+1.	Right click on **lab4** and click **Generate Linker Script…**
     Note that all four major sections, code, data, stack and heap are to be assigned to BRAM controller.
 2.	In the Basic Tab change the Code and Data sections to **ps7_ddr_0**, leaving the Heap and Stack in section to **axi_bram_ctrl_0_S_AXI_BASEADDR** memory and click **Generate**, and click Yes to overwrite.
 
@@ -272,7 +271,7 @@ You should see results similar to that below:
      <i> Targeting Stack/Heap sections to BRAM </i>
      </p>
 
-    Re-build the project by clicking the hammer button.
+    **Re-build** the project by clicking the hammer button.
 3.	Type **arm-none-eabi-objdump –h lab4.elf** at the prompt in the shell window to list various sections of the program, along with the starting address and size of each section
 
     You should see results similar to that below:
@@ -287,11 +286,12 @@ You should see results similar to that below:
 
     Flip the DIP switches and verify that the LEDs light according to the switch settings. Verify that you see the results of the DIP switch and Push button settings in Terminal.
 
-1.	Select lab4 in Project Explorer, right-click and select **Run As > 1 Launch on Hardware (Single Application Debugger)** to download the application.
+1.	Select lab4 in Project Explorer, right-click and select **Run As > Launch on Hardware (Single Application Debugger)** to download the application.
 
-     Click OK if prompted to relaunch the session.
+    Click OK if prompted to relaunch the session.
 
-     Observe the Terminal window as the program executes.  Play with dip switches and observe the LEDs.  Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
+    Observe the Terminal window as the program executes.  Play with dip switches and observe the LEDs.
+    > Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
 
 3.	**Exit** Vitis and Vivado.
 4.	**Power OFF** the board.

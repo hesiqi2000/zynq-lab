@@ -170,11 +170,11 @@ We want to connect the ILA core to the LED interface. Vivado prohibits connectin
 1. Click **OK** to export and **Yes** to overwrite the previous project created by lab2.
 1. Launch Vitis IDE by clicking **Tools > Launch Vitis IDE** and click **OK.**
 1. Right-click on any opened system projects, and click **Close System Project**.
-1. Right click on the previous paltform project _system_wrapper_ and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click **OK**.
 
 ### Create an empty application project named lab6, and import the provided lab6.c file.
 1. From the File menu select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
-1. In the Platform Selection window, click the tag **Select a platform from repository** and select the previous added platform (system_wrapper [custom]). Click **Next**.
+1.  In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the **{labs}\lab6\system_wrapper.xsa** file exported before.
+1. Enter **lab6_platform** as the _Platform name_, click **Next.**
 1. Name the project **lab6**, click **Next**.
 1. In the domain selection window, select **standalone_ps7_cortexa9_0**, click **Next**.
 1. In the templates selection window, select **Empty Application(C)**, click **Finish**.

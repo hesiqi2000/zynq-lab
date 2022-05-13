@@ -154,27 +154,14 @@ The width of the interface will be automatically determined by the upstream bloc
 ### Generate TestApp Application in Vitis IDE
 
 1.  Start Vitis IDE by clicking **Tools > Launch Vitis IDE** and click OK
-1.	Right click on the previous application project (mem_test_system) from the Explorer view and select **Close System Project**
-1.  Right click on the previous paltform project (system_wrapper) and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click **OK**.
-    <p align="center">
-    <img src ="pics/lab2/10_UpdateXSA.jpg"  width="60%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i>Update Hardware Specification</i>
-    </p>
+1.	Right click on the previous application project (lab1_system) from the Explorer view and select **Close System Project**
 1.	From the File menu select **File > New > Application Project**. Click **Next** to skip the welcome page if necessary.
-1.  In the Platform Selection window, click the tag **Select a platform from repository** and select the previous added platform (**system_wrapper \[custom\]**). Click **Next**.
-    <p align="center">
-    <img src ="pics/lab2/11_SelectPlatform.jpg"  width="80%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i>Select a platform</i>
-    </p>
-
-1.	Name the project **TestApp**, click **Next**.
+1.  In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the **{labs}\lab2\system_wrapper.xsa** file exported before.
+1. Enter **lab2_platform** as the _Platform name_, click **Next.**
+1.	Name the project **lab2**, click **Next**.
 1.  Select **standalone_ps7_cortexa9_0**, click **Next**.
 1.	Select **Empty Application(C)** and click **Finish**.
-1.	Expand **TestApp** in the Explorer view, and right-click on the **src** folder, and select **Import Sources...**.
+1.	Expand **lab2_system > lab2** in the Explorer view, and right-click on the **src** folder, and select **Import Sources...**.
 1.  Browse to select the **{sources}\lab2** folder, click **Open Folder**.
 1.  Select **lab2.c** and click **Finish**.
     <p align="center">
@@ -208,18 +195,7 @@ The width of the interface will be automatically determined by the upstream bloc
     <i> Connect to serial port </i>
     </p>
 
-3. Right-click the application project and select **Run As > Run Configurations**.
-4. Right-click **Single Application Debug** and click **New Configuration**. The Vitis software platform creates the new run configuration, named Debugger_TestApp-Default.
-
-5. Click the **Target Setup** page and review the settings. The default choice is the Tcl script.
-    <p align="center">
-    <img src ="pics/lab2/13_RunConfig.jpg" width="90%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i> Debug a Program using AApplication Debugger </i>
-    </p>
-
-6. Click **Run**. 
+1. Right-click **lab2_system > lab2** and select **Launch Hardware (Single Application Debug)**.
 
 7. Play with the buttons and switches, you should see the following output on the Terminal tab.
     <p align="center">

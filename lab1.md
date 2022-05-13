@@ -157,7 +157,8 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1. Select **Tools > Launch Vitis IDE**, and Select the workspace location with any given location path. Click Launch. The Vitis IDE opens.
 1. Review the Welcome page and close it. Click **Create Application Project**, and click Next.
-3. In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the system_wrapper.xsa file exported before.
+3. In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the system_wrapper.xsa file exported before. (Default is in the {labs}\lab1 folder)
+1. Enter **lab1_platform** as the _Platform name_, click **Next.**
     <p align="center">
     <img src ="pics/lab1/10_AddPlatform.jpg" width="80%" height="80%"/>
     </p>
@@ -165,15 +166,9 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
     <i> Select a platform to create the project </i>
     </p> 
 
-4. In the project details window, name the project **mem_test**, and in the Target processor selection, select **ps7_cortexa9_0**.
-    <p align="center">
-    <img src ="pics/lab1/11_NewAppProject.jpg" width="80%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i> Name the project and select target processor </i>
-    </p> 
+4. In the project details window, name the project **lab1**, and in the Target processor selection, select **ps7_cortexa9_0**.
 
-5. Select **Memory Tests** as the template in the Template Selection window. Click finish.
+5. Select **Memory Tests** as the template in the Template Selection window. Click **Finish**.
    <p align="center">
     <img src ="pics/lab1/12_SelTemplate.jpg" width="80%" height="80%"/>
     </p>
@@ -183,17 +178,17 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
 
 1.	Expand folders in the Explorer view on the left, and observe that there are two projects – system_wrapper, and mem_test_system.  The **mem_test_system** project is the application that we will use to verify the functionality of the design.  The **system_wrapper** is a platform project includes the ps7_init function which initializes the PS as part of the first stage bootloader. The Explorer view should look something like this:
     <p align="center">
-    <img src ="pics/lab1/13_Explorer.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/13_Explorer.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i> The Project Explorer view </i>
     </p>  
 
-1. Open the memorytest.c file in the mem_test project (under src), and examine the contents.  This file calls the functions to test the memory.
+1. Open the memorytest.c file in the **lab1_system > lab1** project (under src), and examine the contents.  This file calls the functions to test the memory.
 
 1. Build the application project either by clicking the hammer button or by right-clicking on the application project and selecting Build Project as shown in following figure. As the project builds, you can see the output in the Console window.
     <p align="center">
-    <img src ="pics/lab1/14_Build.jpg" width="35%" height="80%"/>
+    <img src ="pics/lab1/14_Build.jpg" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i> Build the application project </i>
@@ -221,7 +216,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
     <i> Connect to serial port </i>
     </p>
 
-1. Right-click the application project and select **Run As > Run Configurations**.
+1. Right-click **lab1_system > lab1** and select **Launch Hardware (Single Application Debug)**.
     <p align="center">
     <img src ="pics/lab1/17_OpenRunConfig.jpg" width="90%" height="80%"/>
     </p>
@@ -229,17 +224,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
     <i> Launch Run Configurations </i>
     </p>
 
-1. Right-click **Single Application Debug** and click **New Configuration**. The Vitis software platform creates the new run configuration, named Debugger_mem_test-Default.
-
-1. Click the **Target Setup** page and review the settings. The default choice is the Tcl script.
-    <p align="center">
-    <img src ="pics/lab1/18_RunConfig.jpg" width="90%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i> Debug a Program using AApplication Debugger </i>
-    </p>
-
-1. Click **Run**. You should see the following output on the Terminal tab.
+1. You should see the following output on the Terminal tab.
     <p align="center">
     <img src ="pics/lab1/19_MemTestRun.jpg" width="60%" height="80%"/>
     </p>

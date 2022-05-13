@@ -23,9 +23,9 @@ After completing this lab, you will be able to:
 
 ### Create an Application Project
 
-1.	In the Explorer, right click on **lab4_system* and select **Close System Project**
+1.	In the Explorer, right click on **lab4_system** and select **Close System Project**
 1.	Select **File > New > Application Project**.
-1.  Select the platform created in lab4, Click Next
+1.  Select the **lab4_platform** created in lab4, Click Next
 1.	Name the project **lab5**, click Next
 1.  Select **standalone on ps7_cortexa9_0** as the domain. Click Next.
 1.	Select **Empty Application(C)** and click Finish.

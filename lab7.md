@@ -139,12 +139,12 @@ Connection automation could be run on all unconnected ports simultaneously. For 
 1. Click the box to **Include Bitstream** and click **OK** (Click Yes if prompted to overwrite a previous module)
 1. Launch Vitis IDE by clicking **Tools &gt; Launch Vitis IDE** and click **OK**
 1. To clean the workspace, right-click on each opened system project and select **Close System Project**.
-1. Right click on the previous paltform project _system_wrapper_ and select **Update Hardware Specification**. In the opened window, browse to select the .xsa file exported in previous step. Click **OK**.
 
 ### Create an empty application project, named lab7, and import the provided lab7.c file.
 1. From the File menu select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
-1. In the Platform Selection window, click the tag **Select a platform from repository** and select the previous added platform (system_wrapper [custom]). Click **Next**.
-1. Name the project **lab6**, click **Next**.
+1.  In the Platform Selection window, select **Create a new platform from hardware (XSA)** and browse to select the **{labs}\lab7\system_wrapper.xsa** file exported before.
+1. Enter **lab6_platform** as the _Platform name_, click **Next.**
+1. Name the project **lab7**, click **Next**.
 1. In the domain selection window, select **standalone_ps7_cortexa9_0**, click **Next**.
 1. In the templates selection window, select **Empty Application(C)**, click **Finish**.
 1. Expand **lab6** in the Explorer view, and right-click on the **src** folder, and select **Import Sources...**.
