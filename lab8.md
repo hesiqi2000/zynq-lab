@@ -147,7 +147,7 @@ After completing this lab, you will be able to:
 1. Build the project.
 
 ## Create the SD Card Image and Test
-### Create the bin files from lab1 and lab3.
+### Create the bin files from lab1 and lab2.
 1. Using the System Explorer, create directory called **SD\_image** under the **{labs}\lab8** directory.
 1. In System Explorer, copy the **system\_wrapper.bit** of the lab1 project into the **SD\_image** directory and rename it **lab1.bit**, and do similar for lab2
 
@@ -169,7 +169,7 @@ After completing this lab, you will be able to:
     ```bash
     bootgen -image {sources}/lab8/lab2_bit_files.bif -w -process\_bitstream bin
     ```
-1. Rename the files **lab1.bit.bin** and **lab3.bit.bin** to **lab1.bin** and **lab3.bin**
+1. Rename the files **lab1.bit.bin** and **lab2.bit.bin** to **lab1.bin** and **lab2.bin**
 1. The size of the file needs to match the size specified in the **lab8\_sd.c** file. The size can be determined by checking the file&#39;s properties. If the sizes do not match, then make the necessary change to the source code and save it (The values are defined as **LAB1\_BITFILE\_LEN** and **LAB2\_BITFILE\_LEN**).
 
     <p align="center">
@@ -231,7 +231,7 @@ After completing this lab, you will be able to:
 1. Click on the **Add** button of the _boot image partitions_ field and add the **lab8_qspi.elf** file , from **{Vitis_Workspace}\lab8_qspi\Debug** and click **OK**
 
 1. Click on the **Add** button of the _Boot image partition_ field again and add the **lab1.bin** , either from created boot image of the lab1 project (in **{labs}\lab1**) or from the provided **{sources}\lab8\QSPI_image** directory. Enter **0x400000** in the _Offset_ field and click **OK**.
-1. Similarly, add the **lab3.bin** , either from the created boot image of the lab2 project (in **{labs}\lab3**) or from the provided **{sources}\lab8\QSPI_image** directory. Enter **0x800000** in the _Offset_ field and click **OK**.
+1. Similarly, add the **lab2.bin** , either from the created boot image of the lab2 project (in **{labs}\lab2**) or from the provided **{sources}\lab8\QSPI_image** directory. Enter **0x800000** in the _Offset_ field and click **OK**.
 1. Change the output filename to **lab8.mcs** and the location to **lab8\QSPI_image**.
 1. Click the **Create Image** button. The lab8.mcs file will be created in the **lab8\QSPI_image** directory.
 
