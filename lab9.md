@@ -99,7 +99,7 @@ After completing this lab, you will be able to:
 1. Select the **Overview &gt; standalone** entry in the left pane, click on the drop-down arrow of the _enable\_sw\_intrusive\_profiling_ **Value** field and select **true**.
 
     <p align="center">
-    <img src ="./pics/lab9/4_EnableProFile.png" width="60%" height="80%"/>
+    <img src ="./pics/lab9/4_EnableProfile.png" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Enable profiling in the board support package</i>
