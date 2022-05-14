@@ -128,7 +128,7 @@ After completing this lab, you will be able to:
 1. Open the _lab9.c_ file and scroll to the main function at the bottom. Notice the following code:
 
     <p align="center">
-    <img src ="./pics/lab9/Fig6.png" width="60%" height="80%"/>
+    <img src ="./pics/lab9/12_Code.png" width="60%" height="80%"/>
     </p>
     <p align = "center">
     <i>Source code snippet</i>
