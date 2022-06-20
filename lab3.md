@@ -29,7 +29,7 @@ After completing this lab, you will be able to:
 
 ###	Run the Create and Package IP Wizard
 
-1.	Select **Tools > Create and Package IP**
+1.	Select **Tools > Create and Package New IP**
 2.	In the window, click Next
 3.	Select **Create a new AXI4 peripheral**, and click Next
 4.	Fill in the details for the IP
