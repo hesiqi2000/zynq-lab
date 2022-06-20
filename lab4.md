@@ -4,8 +4,6 @@
 
 After completing this lab, you will be able to:
 *	Write a basic application to access an IP peripheral in Vitis IDE
-*	Develop a linker script
-*	Partition the executable sections into both the DDR3 and BRAM spaces
 *	Generate an ELF executable file
 *	Download the bitstream and application and verify on a Zynq board
 
@@ -229,19 +227,6 @@ Notice the files in this directory and open **led_ip.c**. This file only include
     ```
 6.	Save the file and build the project.
 
-### Analyze Assembled Object Files
-
-1.	Launch the shell by selecting **Xilinx > Vitis Shell**.
-2.	Change the directory to **lab4\Debug** using the cd command in the shell.
-3.	Type **arm-none-eabi-objdump –h lab4.elf** at the prompt in the shell window to list various sections of the program, along with the starting address and size of each section
-You should see results similar to that below:
-    <p align="center">
-    <img src ="pics/lab4/4_shellop.jpg" width="80%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i> Object dump results - .text, .stack, and .heap in the DDR3 space </i>
-    </p>
-
 ### Verify in Hardware
 
 1.	Make sure that micro-USB cable(s) is(are) connected between the board and the PC. Change the boot mode to JTAG. Turn ON the power of the board.
@@ -258,44 +243,9 @@ You should see results similar to that below:
 
     >Note: Setting the DIP switches and push buttons will change the results displayed.
 
-
-
-1.	Right click on **lab4** and click **Generate Linker Script…**
-    Note that all four major sections, code, data, stack and heap are to be assigned to BRAM controller.
-2.	In the Basic Tab change the Code and Data sections to **ps7_ddr_0**, leaving the Heap and Stack in section to **axi_bram_ctrl_0_S_AXI_BASEADDR** memory and click **Generate**, and click Yes to overwrite.
-
-     <p align="center">
-     <img src ="pics/lab4/6_bram.jpg" width="80%" height="80%"/>
-     </p>
-     <p align = "center">
-     <i> Targeting Stack/Heap sections to BRAM </i>
-     </p>
-
-    **Re-build** the project by clicking the hammer button.
-3.	Type **arm-none-eabi-objdump –h lab4.elf** at the prompt in the shell window to list various sections of the program, along with the starting address and size of each section
-
-    You should see results similar to that below:
-
-    <p align="center">
-    <img src ="pics/lab4/7_shellop.jpg" width="60%" height="80%"/>
-    </p>
-    <p align = "center">
-    <i>The .heap and .stack sections targeted to BRAM whereas the rest of the application is in DDR </i>
-    </p>
-
-
-    Flip the DIP switches and verify that the LEDs light according to the switch settings. Verify that you see the results of the DIP switch and Push button settings in Terminal.
-
-1.	Select lab4 in Project Explorer, right-click and select **Run As > Launch on Hardware (Single Application Debugger)** to download the application.
-
-    Click OK if prompted to relaunch the session.
-
-    Observe the Terminal window as the program executes.  Play with dip switches and observe the LEDs.
-    > Notice that the system is relatively slow in displaying the message in the Terminal tab and to change in the switches as the stack and heap are from a non-cached BRAM memory.
-
 3.	**Exit** Vitis and Vivado.
 4.	**Power OFF** the board.
 
 ## Conclusion
 
-Use Vitis IDE to define, develop, and integrate the software components of the embedded system.  You can define a device driver interface for each of the peripherals and the processor.  Vitis imports an XSA file, creates a corresponding MSS file and lets you update the settings so you can develop the software side of the processor system.  You can then develop and compile peripheral-specific functional software and generate the executable file from the compiled object code and libraries.  If needed, you can also use a linker script to target various segments in various memories.  When the application is too big to fit in the internal BRAM, you can download the application in external memory and then execute the program.
+Use Vitis IDE to define, develop, and integrate the software components of the embedded system.  You can define a device driver interface for each of the peripherals and the processor.  Vitis imports an XSA file, creates a corresponding MSS file and lets you update the settings so you can develop the software side of the processor system.  You can then develop and compile peripheral-specific functional software and generate the executable file from the compiled object code and libraries.
