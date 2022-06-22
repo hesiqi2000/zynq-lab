@@ -12,14 +12,14 @@ After completing this lab, you will be able to:
 ### Opening the Project
 
 1.	Start the Vivado if necessary and open the lab3 project (lab3.xpr) you created in the previous lab.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab4** as the project name.  Make sure that the **Create Project Subdirectory** option is checked, the project directory path is **{labs}** and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab4** as the project name.  Make sure that the **Create Project Subdirectory** and **Include run results** option is checked, the project directory path is **{labs}** and click OK.
 
     This will create the lab4 directory and save the project and associated directory with lab4 name.
 
 ### Export to Vitis and create Application Project
 
 1.	Click **File > Export > Export Hardware**.
-1.	Click on the checkbox of **Include the bitstream** and click **OK**.
+1.	Click on the checkbox of **Include the bitstream** and click **Finish**.
 1.	Select **Tools > Launch Vitis IDE** and click OK.
 1.	To tidy up the workspace and save unnecessary building of a project that is not being used, right click on the **lab1_system** and **lab2_system** projects from the previous lab, and click **Close System Project**, as these projects will not be used in this lab. They can be reopened later if needed.
 1. 	Select **File > New > Application Project**. Click Next to skip the welcome page if necessary.
@@ -31,7 +31,8 @@ After completing this lab, you will be able to:
 1.	Expand **lab4** in the project view and right-click in the **src** folder and select **Import Sources...**.
 1.  Browse to select the **sources\lab4** folder, click Open Folder.
 1.	Select **lab4.c** and click Finish to add the file to the project. (Ignore any errors for now).
-1.	Open **platform.spr** from the Explorer.
+1.	Open **lab4_platform > platform.spr** from the Explorer.
+1. Click **Board Support Package** under standalone_ps7_cortexa9_0
 1.	Click on **Documentation link** corresponding to buttons peripheral under the Peripheral Drivers section to open the documentation in a default browser window.  As our led_ip is very similar to GPIO, we look at the mentioned documentation.
 
     <p align="center">
@@ -86,50 +87,22 @@ After completing this lab, you will be able to:
     Notice the other **#define XPAR_SWITCHES*** statements in this section for the switches peripheral, and in particular the address of the peripheral defined by **XPAR_SWITCHES_BASEADDR**
 
 1.	Modify line 14 of lab4.c to use this macro (#define) in the XGpio_Initialize function.
-
-    ```C
-    1 #include "xparameters.h"
-    2 #include "xgpio.h"
-    3
-    4 //====================================================
-    5
-    6 int main (void)
-    7 {
-    8
-    9    XGpio dip, push;
-    10   int i, psb_check, dip_check;
-    11
-    12   xil_printf("-- Start of the Program --\r\n");
-    13
-    14   XGpio_Initialize(&dip, XPAR_DIP_DEVICE_ID); // Modify this
-    15   XGpio_SetDataDirection(&dip, 1, 0xffffffff);
-    16
-    17   XGpio_Initialize(&push, XPAR_PUSH_DEVICE_ID); // Modify this
-    18   XGpio_SetDataDirection(&push, 1, 0xffffffff);
-    19
-    20
-    21   while (1)
-    22   {
-    23	  psb_check = XGpio_DiscreteRead(&push, 1);
-    24	  xil_printf("Push Buttons Status %x\r\n", psb_check);
-    25	  dip_check = XGpio_DiscreteRead(&dip, 1);
-    26	  xil_printf("DIP Switch Status %x\r\n", dip_check);
-    27	  
-    28	  // output dip switches value on LED_ip device
-    29	  
-    30	  for (i=0; i<9999999; i++);
-    31   }
-    32 }
-
-    ```
-
 1.	Do the same for the **BUTTONS**; find the macro (#define) for the **BUTTONS** peripheral in **xparameters.h**, and modify line 17 in lab4.c, and save the file.
 
-    The project will be rebuilt. If there are any errors, check and fix your code. Your C code will eventually read the value of the switches and output it to the led_ip.
+    ```C
+    14   XGpio_Initialize(&dip, XPAR_SWITCHES_DEVICE_ID); // Modify this
+    15   XGpio_SetDataDirection(&dip, 1, 0xffffffff);
+    16
+    17   XGpio_Initialize(&push, XPAR_BUTTONS_DEVICE_ID); // Modify this
+    18   XGpio_SetDataDirection(&push, 1, 0xffffffff);
 
-1.	Open **platform.spr** from Explorer and click on **Modify BSP Settings**.
+    ```
+1. **Build** the project
+    >If there are any errors, check and fix your code. Your C code will eventually read the value of the switches and output it to the led_ip.
+
+1.	Open **lab4_platform > platform.spr** from Explorer and click **Board Support Package** under standalone_ps7*, click on **Modify BSP Settings**.
 2.	Select **drivers** on the left (under Overview)
-3.	If the led_ip driver has not already been selected, select Generic under the Driver column for led_ip to access the dropdown menu. From the dropdown menu, select led_ip, and click OK.
+3.	If the led_ip driver has not already been selected, select Generic under the Driver column for led_ip to access the dropdown menu. From the dropdown menu, select **led_ip**, and click OK.
 
     <p align="center">
     <img src ="pics/lab4/3_assigndrv.jpg" width="80%" height="80%"/>

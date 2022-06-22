@@ -162,6 +162,18 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 13.	Click **Re-Package IP**. Click Yes and the project will close when complete.
 14.	In the original Vivado window click **File > Close Project**.
 
+### Fix bugs for Windows
+>You may encounter problems in later labs if you are using a Windows machine. If you are using a Linux machine, you can skip this.
+
+1. Browse to open the file **{labs}\led_ip\ip_repo\led_ip_1.0\drivers\led_ip_v1_0\src\Makefile**
+1. Change line 12 ~ 14 to
+    ```
+    INCLUDEFILES=led_ip.h
+    LIBSOURCES=led_ip.c led_ip_selftest.c
+    OUTS=led_ip.o led_ip_selftest.o
+    ```
+1. Save and close the file
+
 ### Modify the Project Settings
 
 1.	Start the Vivado if necessary and open the lab2 project you created in the previous lab.
@@ -181,7 +193,7 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 ### Add the Custom IP, BRAM, and the Constraints
 
 1.	Click **Open Block Design** under IP Integrator in the Flow Navigator pane
-2.	Right Click on the Diagram window and **add IP..**. Search for **led_ip_v1.0** in the catalog by typing "led" in the search field.
+2.	Right Click on the Diagram window and **Add IP..**. Search for **led_ip_v1.0** in the catalog by typing "led" in the search field.
 3.	Double-click **led_ip_v1_0** to add the core to the design.
 4.	Select the IP in the block diagram and change the instance name to **led_ip** in the properties view.
 5.	Double click the block to open the configuration properties
@@ -202,10 +214,10 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 
 1.	In the Block Diagram, Right click and select the Add IP option. Search for _BRAM_ and add one instance of the **AXI BRAM Controller**
 2.	Run Connection Automation on **axi_bram_ctrl_0/S_AXI** and click OK when prompted to connect it to the M_AXI_GP0 Master.
-3.	Double click on the block to customize it and change the number of BRAM interfaces to 1 and click OK.
+3.	Double click on the block to customize it and change the **number of BRAM interfaces** to 1 and click OK.
 Notice that the AXI Protocol being used is **AXI4** instead of AXI4Lite since BRAM can provide higher bandwidth and the controller can support burst transactions.
 4.	Click on **Run Connection Automation** to add and connect a Block Memory Generator by selecting **axi_bram_ctrl_0/BRAM_PORTA** and click OK (This could be added manually)
-5.	Validate the design to ensure there are no errors (F6), and click the regenerate button to redraw the diagram.
+5. Validate the design (**F6**) to ensure there are no errors , and click the regenerate button to redraw the diagram.
 The design should look similar to the figure below.
 
   <p align="center">

@@ -176,7 +176,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
     <i> Select a template to create the project </i>
     </p> 
 
-1.	Expand folders in the Explorer view on the left, and observe that there are two projects – system_wrapper, and mem_test_system.  The **mem_test_system** project is the application that we will use to verify the functionality of the design.  The **system_wrapper** is a platform project includes the ps7_init function which initializes the PS as part of the first stage bootloader. The Explorer view should look something like this:
+1.	Expand folders in the Explorer view on the left, and observe that there are two projects – lab1_platform, and lab1_system.  The **lab1_system** project is the application that we will use to verify the functionality of the design.  The **lab1_platfrom** is a platform project includes the ps7_init function which initializes the PS as part of the first stage bootloader. The Explorer view should look something like this:
     <p align="center">
     <img src ="pics/lab1/13_Explorer.jpg" width="60%" height="80%"/>
     </p>
@@ -184,7 +184,7 @@ Note:  Since we do not have any hardware in Programmable Logic (PL) there is no 
     <i> The Project Explorer view </i>
     </p>  
 
-1. Open the memorytest.c file in the **lab1_system > lab1** project (under src), and examine the contents.  This file calls the functions to test the memory.
+1. Open the memorytest.c file in the **lab1_system > lab1 > src**, and examine the contents.  This file calls the functions to test the memory.
 
 1. Build the application project either by clicking the hammer button or by right-clicking on the application project and selecting Build Project as shown in following figure. As the project builds, you can see the output in the Console window.
     <p align="center">
