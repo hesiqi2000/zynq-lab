@@ -1,9 +1,10 @@
-# Software Writing for Timer and Debugging
+# Software Development Debugging
 
 ## Objectives
 After completing this lab, you will be able to:
-*	Use Vitis Debugger to set break points and view the content of variables and memory
-
+* Use Vitis Debugger to set break points and view the content of variables and memory
+* Develop a linker script
+* Partition the executable sections into both the DDR3 and BRAM spaces
 ## Steps
 
 ### Open the project in Vivado
@@ -107,9 +108,24 @@ After completing this lab, you will be able to:
 16.	Flip the switches to change the delay and observe the effect.
 17.	Press a push button and observe that the program suspends at the fourth breakpoint.  The timer register content as well as the **control register** (offset 0x08) is red as the counter value had changed and the control register value changed due to timer stop function call. (In the Memory monitor, you may need to right click on the address that is being monitored and click Reset to refresh the memory view.)
 18.	Terminate the session by clicking on the **Terminate** button.
-19.	**Exit** the Vitis and Vivado.
+
+### Generate Linker Script
+1. Go back to **Design** perspecive.
+1. Right click on **lab5_system > lab5** from the Explorer and click **Generate Linker Script**. Note that all four major sections, code, data, stack and heap are to be assigned to BRAM controller.
+1. In the Basic Tab change the Code and Data sections to **ps7_ddr_0**, leaving the Heap and Stack in **axi_bram_ctrl_0_Mem0** and click **Generate**, and click **Yes** to overwrite.
+    <p align="center">
+    <img src ="pics/lab4/6_bram.jpg" width="80%"  height="80%"/>
+    </p>
+    <p align = "center">
+    <i>Generate linker script</i>
+    </p>
+1. **Rebuild** the project.
+1. Right click on **lab5_system > lab5** from the Explorer and click **Run as > 1 Launch Hardware (Single Application Debug)**. Click **Yes** if prompted to relaunch the session.
+    >Observe the Vitis Serial Terminal window as the program executes. Play with dip switches and observe the LEDs. Notice that the system is relatively slow in displaying the message and the LED blinks much slower as the stack and heap are from a non-cached BRAM memory.
+1. When finished, click on the Terminate button in the Console tab.
+19.	**Exit** Vitis and Vivado.
 20.	**Power OFF** the board.
 
 ## Conclusion
 
-This lab led you through developing software that utilized CPU’s private timer function calls and achieved the desired functionality.  You verified the functionality in hardware. Additionally, you used the Vitis debugger to view the content of variables and memory, and stepped through various part of the code.
+This lab led you through developing software that utilized CPU’s private timer function calls and achieved the desired functionality.  You verified the functionality in hardware. Additionally, you used the Vitis debugger to view the content of variables and memory, and stepped through various part of the code. If needed, you can use a linker script to target various segments in various memories. When the application is too big to fit in the internal BRAM, you can download the application in external memory and then execute the program.

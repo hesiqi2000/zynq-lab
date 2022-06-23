@@ -68,6 +68,7 @@ int main (void)
 		  	  LED_IP_mWriteReg(XPAR_LED_IP_S_AXI_BASEADDR, 0, count);
 		  	  count++;
 	  }
+     for (int i=0; i<9999999; i++);
    }
    return 0;
 }
