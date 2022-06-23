@@ -163,7 +163,7 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 14.	In the original Vivado window click **File > Close Project**.
 
 ### Fix bugs for Windows
->You may encounter problems in later labs if you are using a Windows machine. If you are using a Linux machine, you can skip this.
+>You may encounter errors in later labs if you are using a Windows machine.
 
 1. Browse to open the file **{labs}\led_ip\ip_repo\led_ip_1.0\drivers\led_ip_v1_0\src\Makefile**
 1. Change line 12 ~ 14 to
@@ -177,7 +177,7 @@ Notice that the Ports and Interfaces view now shows the user created LED port
 ### Modify the Project Settings
 
 1.	Start the Vivado if necessary and open the lab2 project you created in the previous lab.
-2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab3** as the project name.  Make sure that the **Create Project Subdirector**y option is checked, the project directory path is **{labs}\\** and click OK.
+2.	Select **File > Project > Save As…** to open the Save Project As dialog box. Enter **lab3** as the project name.  Make sure that the **Create Project Subdirector**y option is checked, the project directory path is **{labs}** and click OK.
 3.	Click **Settings** in the Flow Navigator pane.
 4.	Select **IP > Repository** in the left pane of the Project Settings form.
 5.	Click on the Blue Plus button, browse to **{labs}\led_ip** and click Select. The led_ip_v1.0 IP will appear the IP in the Selected Repository window.
