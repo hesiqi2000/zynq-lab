@@ -26,9 +26,9 @@ In the instructions for the labs;
 ---
 **NOTE**
 
-Board support for PYNQ-Z2 are not included in Vivado by default. The relevant files need to be extracted and saved to:
+Board support for PYNQ-Z2 are not included in Vivado by default. The relevant files need to be extracted and saved to: {Vivado installation}\data\boards\board_files\
 
- {Vivado installation}\data\boards\board_files\
+If you do not see the board_files folder, create it manually.
 
 These files can be downloaded from
 
@@ -118,15 +118,7 @@ PYNQ-Z2:[/board_files](https://www.xilinx.com/support/documentation/university/v
 ### Lab 8
   This lab guides you through creating a bootable system capable of booting from the SD card or the QSPI flash memory located on the board. It also demonstrates how different bitstreams can be loaded in the PL section after the board is booted up and the corresponding application can be executed.
     <p align="center">
-    <img src ="./pics/Readme/l8view.png" width="80%" height="80%"/>
-    </p>
-    <p align = "center">
-    </p>
-
-### Lab 9
-  This lab guides you through the process of profiling an application and analyzing the output. The application is then accelerated in hardware and profiled again to analyze the performance improvement. 
-    <p align="center">
-    <img src ="./pics/Readme/l9view.png" width="80%" height="80%"/>
+    <img src ="./pics/Readme/l8view.png" width="60%" height="60%"/>
     </p>
     <p align = "center">
     </p>
